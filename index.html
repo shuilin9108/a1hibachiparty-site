@@ -1,1269 +1,1485 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>HibachiNearby.com | Private Hibachi Catering Near You</title>
-    <meta name="description"
-        content="Book private hibachi catering near you for birthdays, backyard parties, family gatherings, graduations, and special events across North Carolina, South Carolina, and Virginia." />
-    <link rel="canonical" href="https://hibachinearby.com/" />
-    <meta property="og:title" content="HibachiNearby.com | Private Hibachi Catering Near You" />
-    <meta property="og:description"
-        content="Book private hibachi catering near you for birthdays, backyard parties, family gatherings, graduations, and special events across North Carolina, South Carolina, and Virginia." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hibachinearby.com/" />
-    <meta property="og:image" content="https://hibachinearby.com/assets/logos/logo-main.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="HibachiNearby.com | Private Hibachi Catering Near You" />
-    <meta name="twitter:description"
-        content="Book private hibachi catering near you for birthdays, backyard parties, family gatherings, graduations, and special events across North Carolina, South Carolina, and Virginia." />
-    <meta name="twitter:image" content="https://hibachinearby.com/assets/logos/logo-main.png" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FoodEstablishment",
-  "name": "HibachiNearby.com",
-  "url": "https://hibachinearby.com/",
-  "telephone": "+1-646-339-2225",
-  "email": "hibachinearby@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "5506 Supreme Drive",
-    "addressLocality": "Raleigh",
-    "addressRegion": "NC",
-    "postalCode": "27606",
-    "addressCountry": "US"
-  },
-  "servesCuisine": "Japanese, Hibachi",
-  "areaServed": [
-    "Charlotte",
-    "Winston-Salem",
-    "Greensboro",
-    "Durham",
-    "Raleigh",
-    "Fayetteville",
-    "Wilmington",
-    "Kill Devil Hills",
-    "Myrtle Beach",
-    "Virginia Beach",
-    "North Carolina",
-    "South Carolina",
-    "Virginia"
-  ],
-  "description": "Private hibachi catering near you for birthdays, backyard parties, family gatherings, graduations, and special events across North Carolina, South Carolina, and Virginia."
-}
-</script>
-    <style>
-        .homepage-wrap {
-            background: linear-gradient(to bottom, #050505 0%, #0d0d0f 45%, #121214 100%);
-            min-height: 100vh;
-            color: #fff
-        }
-
-        .topbar {
-            background: #111;
-            color: #fff;
-            text-align: center;
-            font-size: 13px;
-            padding: 10px 16px;
-            letter-spacing: .2px;
-            border-bottom: 1px solid rgba(255, 255, 255, .08)
-        }
-
-        .navbar {
-            background: #0a0a0b;
-            border-bottom: 1px solid rgba(255, 255, 255, .08)
-        }
-
-        .navbar .logo a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800
-        }
-
-        .site-logo {
-            height: 46px;
-            width: auto;
-            display: block;
-            object-fit: contain
-        }
-
-        .navbar .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            border-radius: 999px;
-            background: #ff5a1f;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 15px;
-            box-shadow: 0 8px 20px rgba(255, 90, 31, .28)
-        }
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-            min-height: 82vh;
-            background: #000
-        }
-
-        .hero-video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(255, 90, 31, .18), transparent 48%);
-            z-index: 1;
-            pointer-events: none
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, .36), rgba(0, 0, 0, .68));
-            pointer-events: none;
-            z-index: 2
-        }
-
-        .hero-overlay {
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            z-index: 3;
-            width: min(92vw, 980px) !important;
-            max-width: 980px !important;
-            margin: 0 !important;
-            padding: 0 20px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center !important
-        }
-
-        .hero-overlay .eyebrow,
-        .hero-overlay h1,
-        .hero-overlay p,
-        .hero-overlay .tagline,
-        .hero-overlay .hero-actions,
-        .hero-overlay .hero-trust-bar {
-            width: 100% !important;
-            text-align: center !important;
-            margin-left: auto !important;
-            margin-right: auto !important
-        }
-
-        .hero-overlay .eyebrow {
-            margin-bottom: 14px !important;
-            color: #ffb08b;
-            font-weight: 700;
-            letter-spacing: .5px
-        }
-
-        .hero-overlay h1 {
-            max-width: 860px !important;
-            margin: 0 auto 16px !important;
-            font-size: 56px !important;
-            line-height: 1.04 !important;
-            color: #fff !important;
-            letter-spacing: -1.2px !important
-        }
-
-        .hero-overlay p {
-            max-width: 760px !important;
-            margin: 0 auto !important;
-            color: rgba(255, 255, 255, .9) !important;
-            font-size: 18px !important;
-            line-height: 1.8 !important
-        }
-
-        .hero-overlay .tagline {
-            margin-top: 14px !important;
-            font-size: 15px !important;
-            color: rgba(255, 255, 255, .72) !important
-        }
-
-        .hero-actions {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 14px !important;
-            margin-top: 28px !important
-        }
-
-        .hero-trust-bar {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 12px !important;
-            margin-top: 26px !important
-        }
-
-        .hero-trust-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .08);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, .15);
-            font-size: 14px;
-            font-weight: 600;
-            backdrop-filter: blur(8px)
-        }
-
-        .section-light {
-            background: transparent !important
-        }
-
-        .section-header .eyebrow {
-            color: #ff9b71
-        }
-
-        .section-header h2,
-        .section-header h1,
-        .page-title {
-            color: #fff
-        }
-
-        .section-subtitle {
-            color: rgba(255, 255, 255, .72)
-        }
-
-        .booking-search-wrap {
-            max-width: 980px;
-            margin: 0 auto
-        }
-
-        .booking-search-panel {
-            background: linear-gradient(180deg, #131315 0%, #19191c 100%);
-            border: 1px solid rgba(255, 255, 255, .09);
-            border-radius: 24px;
-            padding: 28px 24px;
-            box-shadow: 0 14px 34px rgba(0, 0, 0, .28)
-        }
-
-        .booking-search-box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-            position: relative
-        }
-
-        .booking-search-box input {
-            flex: 1 1 420px;
-            min-width: 260px;
-            height: 58px;
-            padding: 0 18px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, .12);
-            font-size: 16px;
-            outline: none;
-            background: #0d0d0f;
-            color: #fff;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .03)
-        }
-
-        .booking-search-box input::placeholder {
-            color: rgba(255, 255, 255, .45)
-        }
-
-        .booking-search-box input:focus {
-            border-color: rgba(255, 90, 31, .7);
-            box-shadow: 0 0 0 4px rgba(255, 90, 31, .14)
-        }
-
-        .booking-search-box .btn {
-            min-width: 190px;
-            height: 58px;
-            border: none;
-            cursor: pointer
-        }
-
-        .city-search-desktop {
-            display: block
-        }
-
-        .city-mobile-wrap {
-            display: none;
-            position: relative;
-            width: 100%;
-            justify-content: center
-        }
-
-        .city-mobile-trigger {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            box-sizing: border-box;
-            width: 220px;
-            height: 44px;
-            padding: 0 38px 0 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, .12);
-            background: #0d0d0f;
-            color: #fff;
-            font-size: 14px;
-            line-height: 1;
-            text-align: left;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .02);
-            position: relative;
-            appearance: none;
-            -webkit-appearance: none
-        }
-
-        .city-mobile-trigger::after {
-            content: "";
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            width: 10px;
-            height: 10px;
-            border-right: 2px solid #fff;
-            border-bottom: 2px solid #fff;
-            transform: translateY(-65%) rotate(45deg)
-        }
-
-        .city-mobile-menu {
-            display: none;
-            position: absolute;
-            top: 54px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 260px;
-            max-height: 240px;
-            overflow: auto;
-            background: #111214;
-            border: 1px solid rgba(255, 255, 255, .1);
-            border-radius: 14px;
-            box-shadow: 0 14px 30px rgba(0, 0, 0, .36);
-            z-index: 50;
-            padding: 8px
-        }
-
-        .city-mobile-menu.open {
-            display: block
-        }
-
-        .city-mobile-item {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 11px 12px;
-            border: none;
-            background: #111214;
-            border-radius: 10px;
-            font-size: 14px;
-            color: #fff;
-            cursor: pointer
-        }
-
-        .city-mobile-item:hover {
-            background: #1a1b1f
-        }
-
-        .city-chip-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 18px
-        }
-
-        .city-chip {
-            border: 1px solid rgba(255, 255, 255, .12);
-            background: #101012;
-            color: #fff;
-            border-radius: 999px;
-            padding: 10px 16px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: .2s ease
-        }
-
-        .city-chip:hover {
-            background: #ff5a1f;
-            color: #fff;
-            border-color: #ff5a1f
-        }
-
-        .section-note {
-            max-width: 900px;
-            margin: 14px auto 0;
-            text-align: center;
-            color: rgba(255, 255, 255, .64);
-            font-size: 14px;
-            line-height: 1.7
-        }
-
-        .intro-highlight-grid,
-        .why-grid,
-        .how-it-works-grid,
-        .city-home-grid,
-        .review-grid,
-        .faq-preview-grid {
-            display: grid;
-            gap: 20px
-        }
-
-        .intro-highlight-grid,
-        .why-grid,
-        .review-grid,
-        .faq-preview-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            max-width: 1200px;
-            margin: 0 auto
-        }
-
-        .how-it-works-grid,
-        .city-home-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            max-width: 1100px;
-            margin: 0 auto
-        }
-
-        .card,
-        .how-card,
-        .city-card,
-        .review-card,
-        .faq-preview-card,
-        .intro-highlight-card {
-            background: linear-gradient(180deg, #141416 0%, #1b1b1e 100%);
-            border-radius: 20px;
-            padding: 28px;
-            border: 1px solid rgba(255, 255, 255, .08);
-            box-shadow: 0 10px 26px rgba(0, 0, 0, .22)
-        }
-
-        .intro-highlight-card h3,
-        .card h3,
-        .how-card h3,
-        .city-card h3,
-        .review-card h3,
-        .faq-preview-card h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #fff
-        }
-
-        .intro-highlight-card p,
-        .card p,
-        .how-card p,
-        .city-card p,
-        .review-card p,
-        .faq-preview-card p {
-            margin: 0;
-            color: rgba(255, 255, 255, .72);
-            line-height: 1.7
-        }
-
-        .how-card-icon {
-            width: 54px;
-            height: 54px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-            background: #ff5a1f;
-            color: #fff;
-            font-size: 24px;
-            margin-bottom: 14px
-        }
-
-        .how-card-main {
-            font-size: 18px;
-            font-weight: 700;
-            color: #fff !important;
-            margin-bottom: 10px !important
-        }
-
-        .how-card-emphasis {
-            font-weight: 700;
-            color: #fff !important;
-            margin-top: 10px !important
-        }
-
-        .how-card-small {
-            font-size: 14px;
-            margin-top: 10px !important;
-            color: rgba(255, 255, 255, .68) !important
-        }
-
-        .city-card {
-            text-decoration: none;
-            transition: transform .2s ease, box-shadow .2s ease
-        }
-
-        .city-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, .32);
-            border-color: rgba(255, 90, 31, .38)
-        }
-
-        .city-card span {
-            display: inline-block;
-            margin-top: 14px;
-            font-weight: 700;
-            color: #ff9b71
-        }
-
-        .gallery-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 20px;
-            display: block;
-            border: 1px solid rgba(255, 255, 255, .08);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .2)
-        }
-
-        .social-video {
-            max-width: 920px;
-            margin: 0 auto;
-            border-radius: 22px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, .24);
-            border: 1px solid rgba(255, 255, 255, .08);
-            background: #000
-        }
-
-        .social-video video {
-            width: 100%;
-            display: block
-        }
-
-        .review-stars {
-            font-size: 18px;
-            margin-bottom: 10px
-        }
-
-        .review-name {
-            margin-top: 14px;
-            font-weight: 700;
-            color: #fff;
-            display: block
-        }
-
-        .faq-preview-card p strong {
-            color: #fff
-        }
-
-        .cta-split-actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 28px
-        }
-
-        .final-cta-box {
-            max-width: 980px;
-            margin: 0 auto;
-            background: linear-gradient(180deg, #151518 0%, #1b1b1f 100%);
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: 24px;
-            padding: 36px 24px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, .26)
-        }
-
-        .desktop-cta-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            position: fixed;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 22px;
-            z-index: 1200;
-            width: 260px;
-            pointer-events: auto
-        }
-
-        .desktop-cta-stack a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            text-align: center;
-            padding: 14px 20px;
-            border-radius: 999px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 18px;
-            box-shadow: 0 14px 28px rgba(0, 0, 0, .28)
-        }
-
-        .desktop-text-now {
-            background: #111;
-            border: 1px solid rgba(255, 255, 255, .14)
-        }
-
-        .desktop-book-now {
-            background: #ff5a1f
-        }
-
-        .mobile-cta-stack {
-            display: none
-        }
-
-        .footer {
-            background: #0b0b0c;
-            border-top: 1px solid rgba(255, 255, 255, .08)
-        }
-
-        .footer-nav a,
-        .footer p {
-            color: rgba(255, 255, 255, .74)
-        }
-
-        .menu-toggle {
-            color: #fff
-        }
-
-        .floating-contact {
-            display: none
-        }
-
-        @media (max-width:992px) {
-
-            .intro-highlight-grid,
-            .why-grid,
-            .review-grid,
-            .faq-preview-grid,
-            .how-it-works-grid,
-            .city-home-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr
-            }
-
-            .hero-overlay h1 {
-                font-size: 44px !important
-            }
-        }
-
-        @media (max-width:768px) {
-            .site-logo {
-                height: 38px
-            }
-
-            .hero {
-                min-height: 68vh
-            }
-
-            .hero-overlay {
-                width: min(94vw, 94vw) !important;
-                padding: 0 14px !important
-            }
-
-            .hero-overlay h1 {
-                max-width: 100% !important;
-                font-size: 34px !important;
-                line-height: 1.12 !important
-            }
-
-            .hero-overlay p {
-                max-width: 100% !important;
-                font-size: 16px !important
-            }
-
-            .hero-trust-bar {
-                gap: 10px
-            }
-
-            .hero-trust-pill {
-                font-size: 13px;
-                padding: 9px 14px
-            }
-
-            .booking-search-panel {
-                border-radius: 20px;
-                padding: 22px 16px
-            }
-
-            .booking-search-box {
-                flex-direction: column;
-                align-items: center
-            }
-
-            .city-search-desktop {
-                display: none !important
-            }
-
-            .city-mobile-wrap {
-                display: flex;
-                justify-content: center;
-                width: 100%
-            }
-
-            .city-mobile-trigger {
-                width: 220px;
-                height: 44px;
-                font-size: 14px;
-                border-radius: 12px
-            }
-
-            .city-mobile-menu {
-                width: 220px;
-                max-height: 220px
-            }
-
-            .booking-search-box .btn {
-                width: 220px;
-                max-width: 220px;
-                min-width: 0;
-                height: 46px
-            }
-
-            .gallery-grid img {
-                height: 240px
-            }
-
-            .navbar .nav-btn,
-            .desktop-cta-stack {
-                display: none !important
-            }
-
-            .mobile-cta-stack {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                position: fixed;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 16px;
-                z-index: 999;
-                width: calc(100% - 32px);
-                max-width: 340px
-            }
-
-            .mobile-cta-stack a {
-                display: block;
-                text-align: center;
-                padding: 14px 20px;
-                border-radius: 999px;
-                color: #fff;
-                text-decoration: none;
-                font-weight: 800;
-                font-size: 16px;
-                box-shadow: 0 12px 26px rgba(0, 0, 0, .26)
-            }
-
-            .mobile-text-now {
-                background: #111;
-                border: 1px solid rgba(255, 255, 255, .14)
-            }
-
-            .mobile-book-now {
-                background: #ff5a1f
-            }
-
-            body {
-                padding-bottom: 150px
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+  <title>A1 Hibachi Party | Outdoor Hibachi Catering in NYC, Long Island, NJ, CT & PA</title>
+
+  <meta name="description" content="Book A1 Hibachi Party for private outdoor hibachi catering in Manhattan, Brooklyn, Queens, Staten Island, Long Island, White Plains, Scarsdale, Stamford, Greenwich, Jersey City, Short Hills, Philadelphia, and Gladwyne." />
+
+  <link rel="canonical" href="https://www.a1hibachiparty.com/" />
+
+  <meta name="keywords" content="hibachi catering near me, private hibachi chef near me, outdoor hibachi catering NYC, backyard hibachi party, Manhattan hibachi catering, Brooklyn hibachi party, Queens hibachi catering, Staten Island hibachi, Long Island hibachi catering, Westchester hibachi catering, New Jersey hibachi catering, Connecticut hibachi catering, Philadelphia hibachi catering, A1 Hibachi Party" />
+
+  <meta property="og:title" content="A1 Hibachi Party | Outdoor Hibachi Catering" />
+  <meta property="og:description" content="Private outdoor hibachi catering for birthdays, backyard parties, family events, graduations, corporate events, and unforgettable celebrations across NYC, Long Island, NJ, CT, and PA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.a1hibachiparty.com/" />
+  <meta property="og:image" content="https://www.a1hibachiparty.com/assets/logos/logo-banner-wide.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A1 Hibachi Party | Private Outdoor Hibachi Catering" />
+  <meta name="twitter:description" content="Outdoor hibachi catering across NYC, Long Island, Westchester, New Jersey, Connecticut, and Pennsylvania." />
+  <meta name="twitter:image" content="https://www.a1hibachiparty.com/assets/logos/logo-banner-wide.png" />
+
+  <link rel="icon" href="assets/logos/logo-favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "A1 Hibachi Party",
+    "url": "https://www.a1hibachiparty.com/",
+    "telephone": "+1-646-358-2225",
+    "email": "a1hibachiparty@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5102 7th Ave",
+      "addressLocality": "Brooklyn",
+      "addressRegion": "NY",
+      "postalCode": "11220",
+      "addressCountry": "US"
+    },
+    "servesCuisine": "Japanese, Hibachi",
+    "areaServed": [
+      "Manhattan, NY",
+      "Brooklyn, NY",
+      "Queens, NY",
+      "Staten Island, NY",
+      "Long Island, NY",
+      "White Plains, NY",
+      "Scarsdale, NY",
+      "Stamford, CT",
+      "Greenwich, CT",
+      "Jersey City, NJ",
+      "Short Hills, NJ",
+      "Philadelphia, PA",
+      "Gladwyne, PA",
+      "New York",
+      "New Jersey",
+      "Connecticut",
+      "Pennsylvania"
+    ],
+    "description": "A1 Hibachi Party provides private outdoor hibachi catering for birthdays, backyard parties, family gatherings, graduations, corporate events, and celebrations across NYC, Long Island, Westchester, NJ, CT, and PA."
+  }
+  </script>
+
+  <style>
+    :root {
+      --red: #dc2626;
+      --dark-red: #b91c1c;
+      --black: #111111;
+      --text: #181818;
+      --muted: #666666;
+      --soft: #f8f8f8;
+      --border: #e5e5e5;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body.homepage-wrap {
+      margin: 0;
+      background: #ffffff;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 6%;
+    }
+
+    .site-logo {
+      height: 56px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--black);
+      text-transform: uppercase;
+      letter-spacing: .3px;
+    }
+
+    .menu a:hover { color: var(--red); }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--black);
+      font-size: 28px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .nav-btn,
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: 900;
+      border: 2px solid var(--red);
+      box-shadow: 0 10px 22px rgba(220, 38, 38, .24);
+    }
+
+    .btn-secondary,
+    .outline-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--red) !important;
+      text-decoration: none;
+      font-weight: 900;
+      border: 2px solid var(--red);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.36), rgba(0,0,0,.7));
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      width: min(1050px, 92vw);
+      text-align: center;
+      color: #fff;
+      padding: 86px 20px;
+    }
+
+    .hero .eyebrow {
+      color: #ffb4b4;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .98;
+      margin: 0 auto 18px;
+      letter-spacing: -2px;
+      max-width: 980px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.7;
+      max-width: 820px;
+      margin: 0 auto;
+      color: rgba(255,255,255,.92);
+    }
+
+    .tagline {
+      margin-top: 12px !important;
+      font-weight: 800;
+      color: #fff !important;
+    }
+
+    .hero-actions,
+    .cta-split-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-trust-pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+      font-size: 14px;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-banner-section {
+      background: #fff;
+      padding: 30px 6%;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .brand-banner {
+      width: min(620px, 92vw);
+      margin: 0 auto;
+      display: block;
+    }
+
+    .trust-strip {
+      padding: 18px 6%;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      color: var(--red);
+      font-weight: 900;
+    }
+        .section {
+      padding: 82px 6%;
+      background: #fff;
+    }
+
+    .section-light {
+      background: var(--soft);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+
+    .section-header h2 {
+      color: var(--black);
+      font-size: clamp(32px, 4.5vw, 52px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -1.4px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .booking-search-wrap,
+    .final-cta-box {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .booking-search-panel,
+    .final-cta-box,
+    .card,
+    .how-card,
+    .city-card,
+    .review-card,
+    .faq-preview-card,
+    .intro-highlight-card,
+    .seo-card,
+    .area-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    .booking-search-panel {
+      padding: 28px;
+    }
+
+    .booking-search-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .booking-search-box input {
+      flex: 1 1 420px;
+      min-width: 260px;
+      height: 58px;
+      padding: 0 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+      color: var(--black);
+    }
+
+    .booking-search-box input:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 4px rgba(220,38,38,.12);
+    }
+
+    .booking-search-box .btn-primary {
+      height: 58px;
+      min-width: 190px;
+      cursor: pointer;
+    }
+
+    .city-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .city-chip {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--black);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .city-chip:hover {
+      background: var(--red);
+      color: #fff;
+      border-color: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .section-note {
+      max-width: 900px;
+      margin: 16px auto 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .intro-highlight-grid,
+    .why-grid,
+    .how-it-works-grid,
+    .city-home-grid,
+    .review-grid,
+    .faq-preview-grid,
+    .seo-grid,
+    .area-grid {
+      display: grid;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-highlight-grid,
+    .why-grid,
+    .review-grid,
+    .faq-preview-grid,
+    .how-it-works-grid,
+    .city-home-grid,
+    .seo-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .area-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card,
+    .how-card,
+    .city-card,
+    .review-card,
+    .faq-preview-card,
+    .intro-highlight-card,
+    .seo-card,
+    .area-card {
+      padding: 28px;
+    }
+
+    .card h3,
+    .how-card h3,
+    .city-card h3,
+    .review-card h3,
+    .faq-preview-card h3,
+    .intro-highlight-card h3,
+    .seo-card h3,
+    .area-card h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 22px;
+    }
+
+    .card p,
+    .how-card p,
+    .city-card p,
+    .review-card p,
+    .faq-preview-card p,
+    .intro-highlight-card p,
+    .seo-card p,
+    .area-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .how-card-icon {
+      width: 54px;
+      height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: var(--red);
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .how-card-main {
+      font-weight: 900;
+      color: var(--black) !important;
+      margin-bottom: 10px !important;
+    }
+
+    .how-card-small {
+      font-size: 14px;
+      margin-top: 10px !important;
+    }
+
+    .city-card {
+      text-decoration: none;
+      transition: .2s ease;
+    }
+
+    .city-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(220,38,38,.45);
+      box-shadow: 0 16px 34px rgba(0,0,0,.12);
+    }
+
+    .city-card span {
+      display: inline-block;
+      margin-top: 14px;
+      font-weight: 900;
+      color: var(--red);
+    }
+
+    .city-card small {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-size: 12px;
+    }
+
+    .feature-split {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .feature-split img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 18px 42px rgba(0,0,0,.14);
+    }
+
+    .feature-copy h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.08;
+      margin: 0 0 16px;
+      color: var(--black);
+    }
+
+    .feature-copy p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .seo-copy-box {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 34px 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    .seo-copy-box p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+      text-align: center;
+      margin: 0;
+    }
+
+    .seo-copy-box strong {
+      color: var(--black);
+    }
+
+    .gallery-grid {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+
+    .social-video {
+      max-width: 920px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,.18);
+      background: #000;
+    }
+
+    .social-video video {
+      width: 100%;
+      display: block;
+    }
+
+    .review-stars {
+      color: var(--red);
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .review-name {
+      margin-top: 14px;
+      font-weight: 900;
+      color: var(--black);
+      display: block;
+    }
+
+    .final-cta-box {
+      padding: 42px 28px;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff, #fff5f5);
+    }
+
+    .final-cta-box h2 {
+      font-size: clamp(32px, 4.5vw, 54px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      color: var(--black);
+      letter-spacing: -1.2px;
+    }
+
+    .footer {
+      background: var(--black);
+      color: rgba(255,255,255,.78);
+      padding: 38px 6%;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .footer-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .footer-contact p {
+      margin: 7px 0;
+      color: rgba(255,255,255,.78);
+    }
+
+    .footer-contact a,
+    .footer-shuilink-link {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .footer-copy {
+      margin-top: 18px;
+      font-size: 14px;
+      color: rgba(255,255,255,.7);
+    }
+
+    .desktop-cta-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 1200;
+      width: 260px;
+    }
+
+    .desktop-cta-stack a,
+    .mobile-cta-stack a {
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    }
+
+    .desktop-text-now,
+    .mobile-text-now {
+      background: var(--black);
+    }
+
+    .desktop-book-now,
+    .mobile-book-now {
+      background: var(--red);
+    }
+
+    .mobile-cta-stack {
+      display: none;
+    }
+
+    @media (max-width: 992px) {
+      .intro-highlight-grid,
+      .why-grid,
+      .review-grid,
+      .faq-preview-grid,
+      .how-it-works-grid,
+      .city-home-grid,
+      .gallery-grid,
+      .feature-split,
+      .seo-grid,
+      .area-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-split img {
+        height: 340px;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 86px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 6%;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .menu.menu-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar .nav-btn {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-logo {
+        height: 42px;
+      }
+
+      .hero {
+        min-height: 74vh;
+      }
+
+      .hero-overlay {
+        padding: 72px 18px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .brand-banner {
+        width: min(430px, 92vw);
+      }
+
+      .booking-search-box {
+        flex-direction: column;
+      }
+
+      .booking-search-box input,
+      .booking-search-box .btn-primary {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .gallery-grid img {
+        height: 250px;
+      }
+
+      .desktop-cta-stack {
+        display: none;
+      }
+
+      .mobile-cta-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 16px;
+        z-index: 999;
+        width: calc(100% - 32px);
+        max-width: 340px;
+      }
+
+      body {
+        padding-bottom: 150px;
+      }
+    }
+  </style>
 </head>
 
 <body class="homepage-wrap">
-    <div class="topbar">Private Hibachi Catering Near You For Birthdays, Backyard Parties, Family Gatherings & Special
-        Events</div>
+  <div class="topbar">
+    Outdoor Hibachi Catering · NYC · Long Island · Westchester · New Jersey · Connecticut · Pennsylvania
+  </div>
 
-    <nav class="navbar">
-        <div class="logo"><a href="index.html"><img src="assets/logos/logo-main.png" alt="HibachiNearby logo"
-                    class="site-logo" /></a></div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
-        <div class="menu" id="mobileMenu"><a href="index.html">Home</a><a href="book-online.html">Book Online</a><a
-                href="menu.html">Menu</a><a href="cities.html">Cities</a><a href="gallery.html">Gallery</a><a
-                href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
-        <a href="book-online.html" class="nav-btn">Book Now</a>
-    </nav>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logos/logo-main.png" alt="A1 Hibachi Party logo" class="site-logo" />
+      </a>
+    </div>
 
-    <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video" preload="auto">
-            <source src="assets/videos/hero-hibachi.mp4" type="video/mp4" />
-        </video>
-        <div class="hero-overlay">
-            <p class="eyebrow">Private Hibachi Catering Near You</p>
-            <h1>Book A Backyard Hibachi Experience Your Guests Will Never Forget</h1>
-            <p>From birthdays and family dinners to rooftop parties and large backyard celebrations, HibachiNearby
-                brings live hibachi chefs, fresh food, and unforgettable entertainment directly to your event.</p>
-            <p class="tagline">Serving cities across North Carolina, South Carolina, and Virginia.</p>
-            <div class="hero-actions"><a href="book-online.html" class="btn btn-primary">Book Your Event</a><a
-                    href="#city-search-section" class="btn btn-secondary">Browse Cities</a></div>
-            <div class="hero-trust-bar">
-                <div class="hero-trust-pill">📍 NC, SC & VA</div>
-                <div class="hero-trust-pill">🔥 Live Fire Show</div>
-                <div class="hero-trust-pill">🍽 Real Backyard Hibachi</div>
-                <div class="hero-trust-pill">💬 Fast Text Response</div>
-            </div>
-        </div>
-    </section>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
 
-    <section class="section" style="padding-top:10px;padding-bottom:0;">
-        <p style="margin:0 auto;text-align:center;color:#ff9b71;font-weight:600;">⭐ 100+ 5-Star Experiences · Trusted
-            Private Hibachi Service</p>
-    </section>
+    <div class="menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="book-online.html">Book Online</a>
+      <a href="menu.html">Menu</a>
+      <a href="cities.html">Cities</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
 
-    <section class="section section-light" id="city-search-section">
-        <div class="section-header">
-            <p class="eyebrow">Start Here</p>
-            <h2>Find Hibachi Catering Available Near You</h2>
-            <p class="section-subtitle">Browse major cities in North Carolina, South Carolina, and Virginia. If your
-                city is not listed, contact us anyway — we can usually still serve most areas.</p>
-        </div>
+    <a href="book-online.html" class="nav-btn">Book Now</a>
+  </nav>
 
-        <div class="booking-search-wrap">
-            <div class="booking-search-panel">
-                <div class="booking-search-box">
-                    <input type="text" id="serviceCityInput" class="city-search-desktop" list="serviceCityOptions"
-                        placeholder="Enter your city (example: Charlotte)" aria-label="Search city" autocomplete="off"
-                        autocapitalize="off" spellcheck="false" />
-                    <datalist id="serviceCityOptions">
-                        <option value="Charlotte"></option>
-                        <option value="Winston-Salem"></option>
-                        <option value="Greensboro"></option>
-                        <option value="Durham"></option>
-                        <option value="Raleigh"></option>
-                        <option value="Fayetteville"></option>
-                        <option value="Wilmington"></option>
-                        <option value="Kill Devil Hills"></option>
-                        <option value="Myrtle Beach"></option>
-                        <option value="Virginia Beach"></option>
-                    </datalist>
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video" preload="auto">
+      <source src="assets/videos/hero-hibachi.mp4" type="video/mp4" />
+    </video>
 
-                    <div class="city-mobile-wrap">
-                        <button type="button" id="cityMobileTrigger" class="city-mobile-trigger">Choose your
-                            city</button>
-                        <div id="cityMobileMenu" class="city-mobile-menu">
-                            <button type="button" class="city-mobile-item" data-city="Charlotte">Charlotte</button>
-                            <button type="button" class="city-mobile-item"
-                                data-city="Winston-Salem">Winston-Salem</button>
-                            <button type="button" class="city-mobile-item" data-city="Greensboro">Greensboro</button>
-                            <button type="button" class="city-mobile-item" data-city="Durham">Durham</button>
-                            <button type="button" class="city-mobile-item" data-city="Raleigh">Raleigh</button>
-                            <button type="button" class="city-mobile-item"
-                                data-city="Fayetteville">Fayetteville</button>
-                            <button type="button" class="city-mobile-item" data-city="Wilmington">Wilmington</button>
-                            <button type="button" class="city-mobile-item" data-city="Kill Devil Hills">Kill Devil
-                                Hills</button>
-                            <button type="button" class="city-mobile-item" data-city="Myrtle Beach">Myrtle
-                                Beach</button>
-                            <button type="button" class="city-mobile-item" data-city="Virginia Beach">Virginia
-                                Beach</button>
-                        </div>
-                    </div>
+    <div class="hero-overlay">
+      <p class="eyebrow">Private Outdoor Hibachi Catering</p>
+      <h1>Book An A1 Hibachi Party Your Guests Will Never Forget</h1>
+      <p>
+        A1 Hibachi Party brings private outdoor hibachi chefs, live fire show moments, fresh food,
+        and unforgettable entertainment directly to your backyard, rooftop, patio, driveway, or private event.
+      </p>
+      <p class="tagline">Serving NYC, Long Island, Westchester, New Jersey, Connecticut, and Pennsylvania.</p>
 
-                    <button id="citySearchButton" class="btn btn-primary" type="button">Continue Booking</button>
-                </div>
+      <div class="hero-actions">
+        <a href="book-online.html" class="btn-primary">Book Your Event</a>
+        <a href="#city-search-section" class="btn-secondary">Check Your Area</a>
+      </div>
 
-                <div class="city-chip-row" id="cityChipRow">
-                    <button type="button" class="city-chip" data-city="Charlotte">Charlotte</button>
-                    <button type="button" class="city-chip" data-city="Raleigh">Raleigh</button>
-                    <button type="button" class="city-chip" data-city="Durham">Durham</button>
-                    <button type="button" class="city-chip" data-city="Winston-Salem">Winston-Salem</button>
-                    <button type="button" class="city-chip" data-city="Myrtle Beach">Myrtle Beach</button>
-                    <button type="button" class="city-chip" data-city="Virginia Beach">Virginia Beach</button>
-                </div>
+      <div class="hero-trust-bar">
+        <div class="hero-trust-pill">📍 NY · NJ · CT · PA</div>
+        <div class="hero-trust-pill">🔥 Live Fire Show</div>
+        <div class="hero-trust-pill">🍽 Outdoor Hibachi</div>
+        <div class="hero-trust-pill">💬 Fast Text Response</div>
+      </div>
+    </div>
+  </section>
 
-                <p id="citySearchHint"
-                    style="text-align:center;margin-top:12px;color:rgba(255,255,255,.66);font-size:14px;"></p>
-                <p class="section-note">Don’t see your city? Contact us anyway — we serve most cities across North
-                    Carolina, South Carolina, and Virginia.</p>
-            </div>
-        </div>
-    </section>
+  <section class="brand-banner-section">
+    <img src="assets/logos/logo-banner-wide.png" alt="A1 Hibachi Party official banner logo" class="brand-banner" />
+  </section>
 
-    <section class="section section-light">
-        <div class="section-header">
-            <p class="eyebrow">At-Home Hibachi Experience</p>
-            <h2>Real Hibachi Parties. Real Guests. Real Memories.</h2>
-            <p class="section-subtitle">HibachiNearby makes it easy to book a private hibachi chef for birthdays,
-                graduations, rooftop parties, family gatherings, and unforgettable backyard events.</p>
-        </div>
-        <div class="intro-highlight-grid">
-            <div class="intro-highlight-card">
-                <h3>Live Chef Entertainment</h3>
-                <p>Your guests enjoy dinner and the show at the same time with live hibachi-style cooking at your
-                    location.</p>
-            </div>
-            <div class="intro-highlight-card">
-                <h3>Perfect For Group Celebrations</h3>
-                <p>Great for birthdays, family gatherings, rooftop parties, date nights, graduations, and private
-                    events.</p>
-            </div>
-            <div class="intro-highlight-card">
-                <h3>Simple Booking Flow</h3>
-                <p>Choose your city, submit your request, and lock in your private hibachi experience without a
-                    complicated process.</p>
-            </div>
-        </div>
-    </section>
+  <div class="trust-strip">
+    ⭐ Private Parties · Birthdays · Graduations · Corporate Events · Family Celebrations
+  </div>
 
-    <section class="section section-light how-it-works-section">
-        <div class="section-header">
-            <p class="eyebrow">How It Works</p>
-            <h2>Book Your Private Hibachi Experience In 3 Simple Steps</h2>
-            <p class="section-subtitle">Simple process. Fast response. No complicated setup.</p>
+  <section class="section section-light" id="city-search-section">
+    <div class="section-header">
+      <p class="eyebrow">Start Here</p>
+      <h2>Find A1 Hibachi Catering Near Your Event</h2>
+      <p class="section-subtitle">
+        Choose your city to view a dedicated local hibachi catering page. Each city page includes local event ideas,
+        setup notes, booking links, and SEO-friendly service information.
+      </p>
+    </div>
+
+    <div class="booking-search-wrap">
+      <div class="booking-search-panel">
+        <div class="booking-search-box">
+          <input
+            type="text"
+            id="serviceCityInput"
+            list="serviceCityOptions"
+            placeholder="Enter your city, example: Brooklyn"
+            aria-label="Search city"
+            autocomplete="off"
+          />
+
+          <datalist id="serviceCityOptions">
+            <option value="Manhattan"></option>
+            <option value="Brooklyn"></option>
+            <option value="Queens"></option>
+            <option value="Staten Island"></option>
+            <option value="Long Island"></option>
+            <option value="White Plains"></option>
+            <option value="Scarsdale"></option>
+            <option value="Stamford"></option>
+            <option value="Greenwich"></option>
+            <option value="Jersey City"></option>
+            <option value="Short Hills"></option>
+            <option value="Philadelphia"></option>
+            <option value="Gladwyne"></option>
+          </datalist>
+
+          <button id="citySearchButton" class="btn-primary" type="button">View City Page</button>
         </div>
 
-        <div class="how-it-works-grid">
-            <div class="how-card">
-                <div class="how-card-icon">📍</div>
-                <h3>1. Choose Your City</h3>
-                <p class="how-card-main">Find your location</p>
-                <p>Select your city or enter your location to check availability.</p>
-                <p class="how-card-small">We serve most areas across NC, SC, and VA.</p>
-            </div>
-
-            <div class="how-card">
-                <div class="how-card-icon">📝</div>
-                <h3>2. Submit Your Booking</h3>
-                <p class="how-card-main">Tell us about your event</p>
-                <p>Choose your date, guest count, and event details. The process is quick and easy.</p>
-                <p class="how-card-small">If your city is not listed, contact us and we can usually still help.</p>
-            </div>
-
-            <div class="how-card">
-                <div class="how-card-icon">🔥</div>
-                <h3>3. Chef Comes To You</h3>
-                <p class="how-card-main">Enjoy the experience</p>
-                <p>Our chef arrives, cooks live, and turns your dinner into a full hibachi experience.</p>
-                <p class="how-card-small">Food + fire show + fun entertainment for your group.</p>
-            </div>
+        <div class="city-chip-row" id="cityChipRow">
+          <button type="button" class="city-chip" data-city="Manhattan">Manhattan</button>
+          <button type="button" class="city-chip" data-city="Brooklyn">Brooklyn</button>
+          <button type="button" class="city-chip" data-city="Queens">Queens</button>
+          <button type="button" class="city-chip" data-city="Long Island">Long Island</button>
+          <button type="button" class="city-chip" data-city="Jersey City">Jersey City</button>
+          <button type="button" class="city-chip" data-city="Stamford">Stamford</button>
+          <button type="button" class="city-chip" data-city="Philadelphia">Philadelphia</button>
         </div>
 
-        <div class="center-action" style="margin-top:28px;"><a href="menu.html" class="outline-btn">View Full Menu →</a>
-        </div>
-    </section>
-
-    <section class="section section-light">
-        <div class="section-header">
-            <p class="eyebrow">Cities</p>
-            <h2>Browse Cities We Serve</h2>
-            <p class="section-subtitle">Explore city-specific hibachi pages for stronger local search visibility, then
-                continue into the same booking flow.</p>
-        </div>
-        <div class="city-home-grid" id="city-home-grid">
-
-            <!-- North Carolina -->
-            <a class="city-card" href="charlotte-hibachi.html">
-                <h3>Charlotte</h3>
-                <p>Private hibachi catering in Charlotte for birthdays, backyard parties, and group celebrations.</p>
-                <span>Book Charlotte →</span>
-            </a>
-
-            <a class="city-card" href="raleigh-hibachi.html">
-                <h3>Raleigh</h3>
-                <p>Private hibachi catering in Raleigh for family gatherings, home dinners, and special events.</p>
-                <span>Book Raleigh →</span>
-            </a>
-
-            <a class="city-card" href="durham-hibachi.html">
-                <h3>Durham</h3>
-                <p>Private hibachi catering in Durham for birthdays, backyard parties, and home events.</p>
-                <span>Book Durham →</span>
-            </a>
-
-            <a class="city-card" href="greensboro-hibachi.html">
-                <h3>Greensboro</h3>
-                <p>At-home hibachi catering in Greensboro for family gatherings and celebrations.</p>
-                <span>Book Greensboro →</span>
-            </a>
-
-            <a class="city-card" href="winston-salem-hibachi.html">
-                <h3>Winston-Salem</h3>
-                <p>Private hibachi catering in Winston-Salem for home dinners and events.</p>
-                <span>Book Winston-Salem →</span>
-            </a>
-
-            <a class="city-card" href="wilmington-hibachi.html">
-                <h3>Wilmington</h3>
-                <p>Private hibachi catering in Wilmington for beach homes and vacation events.</p>
-                <span>Book Wilmington →</span>
-            </a>
-
-            <a class="city-card" href="fayetteville-hibachi.html">
-                <h3>Fayetteville</h3>
-                <p>Private hibachi catering in Fayetteville for backyard parties and group dinners.</p>
-                <span>Book Fayetteville →</span>
-            </a>
-
-            <a class="city-card" href="kill-devil-hills-hibachi.html">
-                <h3>Kill Devil Hills</h3>
-                <p>Private hibachi chef experiences for beach house dinners and group trips.</p>
-                <span>Book Kill Devil Hills →</span>
-            </a>
-
-            <!-- SC + VA -->
-            <a class="city-card" href="myrtle-beach-hibachi.html">
-                <h3>Myrtle Beach</h3>
-                <p>Private hibachi catering in Myrtle Beach for vacations, birthdays, and beach events.</p>
-                <span>Book Myrtle Beach →</span>
-            </a>
-
-            <a class="city-card" href="virginia-beach-hibachi.html">
-                <h3>Virginia Beach</h3>
-                <p>Private hibachi catering in Virginia Beach for home parties and vacation rentals.</p>
-                <span>Book Virginia Beach →</span>
-            </a>
-
-        </div>
+        <p id="citySearchHint" class="section-note"></p>
         <p class="section-note">
-            Not seeing your city? No problem — we serve most locations across North Carolina, South Carolina, and
-            Virginia. Contact us to check availability.
+          Based in Brooklyn, NY. Service is generally available within about 3 hours of NYC depending on traffic, schedule, and event size.
         </p>
-        <div class="center-action" style="margin-top:28px;"><a href="cities.html" class="outline-btn">See All Cities
-                →</a></div>
-    </section>
-
+      </div>
+    </div>
+  </section>
     <section class="section">
-        <div class="section-header">
-            <p class="eyebrow">Why Guests Love It</p>
-            <h2>Why People Book HibachiNearby</h2>
-            <p class="section-subtitle">It’s more than dinner — it’s a full event experience people actually talk about
-                after the party ends.</p>
-        </div>
-        <div class="why-grid">
-            <div class="card">
-                <h3>🔥 Fire Show Moments</h3>
-                <p>High-energy live hibachi cooking creates a real wow factor for parties, birthdays, and celebrations.
-                </p>
-            </div>
-            <div class="card">
-                <h3>👨‍🍳 Private Chef Setup</h3>
-                <p>A restaurant-style hibachi experience brought directly to your backyard, patio, rooftop, or private
-                    event space.</p>
-            </div>
-            <div class="card">
-                <h3>🎉 Built For Celebrations</h3>
-                <p>Perfect for birthdays, family events, anniversaries, graduations, date nights, and large group
-                    parties.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section-light">
-        <div class="section-header">
-            <p class="eyebrow">Gallery</p>
-            <h2>See Real Hibachi Events Near You</h2>
-            <p class="section-subtitle">Real guests. Real setups. Real hibachi experiences.</p>
-        </div>
-        <div class="gallery-grid">
-            <img src="assets/images/gallery/hibachi-party-backyard-fire-show-01.jpg"
-                alt="Backyard hibachi fire show with guests around the grill" />
-            <img src="assets/images/gallery/hibachi-party-backyard-dinner-heart-rice-01.jpg"
-                alt="Backyard hibachi party with heart shaped fried rice" />
-            <img src="assets/images/gallery/hibachi-party-rooftop-costume-01.jpg"
-                alt="Rooftop hibachi party with group of guests" />
-            <img src="assets/images/gallery/hibachi-party-large-backyard-group-01.jpg"
-                alt="Large backyard hibachi catering setup" />
-            <img src="assets/images/gallery/hibachi-party-couple-heart-rice-01.jpg"
-                alt="Birthday hibachi couple photo with heart rice" />
-            <img src="assets/images/gallery/hibachi-party-upscale-night-fire-show-01.jpg"
-                alt="Upscale hibachi dinner with live fire show at night" />
-        </div>
-        <div class="social-video" style="margin-top:22px;"><video autoplay muted loop playsinline preload="auto"
-                poster="assets/images/gallery/hibachi-party-rooftop-costume-01.jpg">
-                <source src="assets/videos/hero-hibachi.mp4" type="video/mp4" />
-            </video></div>
-        <div class="center-action" style="margin-top:28px;"><a href="gallery.html" class="outline-btn">View More Photos
-                & Videos →</a></div>
-    </section>
-
-    <section class="section">
-        <div class="section-header">
-            <p class="eyebrow">Social</p>
-            <h2>Real Events. Real Reactions.</h2>
-            <p class="section-subtitle">Watch the energy guests get when the chef arrives and the grill turns on.</p>
-        </div>
-        <div class="social-video"><video autoplay muted loop playsinline
-                poster="assets/images/gallery/hibachi-party-rooftop-costume-01.jpg">
-                <source src="assets/videos/hero-hibachi.mp4" type="video/mp4" />
-            </video></div>
-        <div class="center-action"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                class="outline-btn">Follow Us →</a></div>
-    </section>
-
-    <section class="section section-light">
-        <div class="section-header">
-            <p class="eyebrow">Reviews</p>
-            <h2>Customers Love The Food, Energy, And Experience</h2>
-            <p class="section-subtitle">Here’s why guests keep recommending private hibachi parties to friends and
-                family.</p>
-        </div>
-        <div class="review-grid">
-            <div class="review-card">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>Guests had the best time and the chef made the whole dinner feel like a show. Super memorable and
-                    really easy to set up.</p><span class="review-name">— Birthday Party Host</span>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>The fire show was amazing, food was fresh, and the whole experience felt private and fun. Everyone
-                    kept talking about it after.</p><span class="review-name">— Backyard Event Guest</span>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>Perfect for a large group. Way more exciting than going out to a restaurant and much better for
-                    celebrations at home.</p><span class="review-name">— Family Celebration Host</span>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>The booking process was simple, the chef arrived on time, and the atmosphere was incredible. We would
-                    absolutely do it again.</p><span class="review-name">— Private Event Guest</span>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>Such a fun experience for our group. The food, entertainment, and overall energy made the night feel
-                    special.</p><span class="review-name">— Graduation Party Host</span>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>Private hibachi at home was one of the best party ideas we’ve done. Smooth setup and a real wow
-                    factor for guests.</p><span class="review-name">— Anniversary Dinner Host</span>
-            </div>
-        </div>
-        <div class="center-action" style="margin-top:28px;"><a href="gallery.html" class="outline-btn">See Real Events
-                →</a></div>
-    </section>
-
-    <section class="section section-light">
-        <div class="section-header">
-            <p class="eyebrow">FAQ</p>
-            <h2>Common Questions Before Booking Private Hibachi</h2>
-            <p class="section-subtitle">These are some of the most common questions customers ask before submitting a
-                booking request.</p>
-        </div>
-        <div class="faq-preview-grid">
-            <div class="faq-preview-card">
-                <h3>Do you cook indoors?</h3>
-                <p><strong>No.</strong> Hibachi service is usually best for outdoor setups unless a venue clearly allows
-                    an indoor arrangement.</p>
-            </div>
-            <div class="faq-preview-card">
-                <h3>What do I need to provide?</h3>
-                <p>You usually provide tables, chairs, utensils, and enough space. The chef brings the grill, cooking
-                    setup, and food service based on the booking.</p>
-            </div>
-            <div class="faq-preview-card">
-                <h3>What if my city is not listed?</h3>
-                <p>Contact us anyway. We serve most cities across North Carolina, South Carolina, and Virginia and can
-                    usually still accommodate your event.</p>
-            </div>
-        </div>
-        <div class="center-action" style="margin-top:28px;"><a href="faq.html" class="outline-btn">Read Full FAQ →</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="final-cta-box">
-            <div class="section-header" style="margin-bottom:0;">
-                <p class="eyebrow">Ready To Book?</p>
-                <h2>Start Your Hibachi Booking In Minutes</h2>
-                <p class="section-subtitle">Choose your city, check availability, and submit your request online.</p>
-            </div>
-            <div class="cta-split-actions"><a href="book-online.html" class="btn btn-primary">Book Online</a><a
-                    href="cities.html" class="btn btn-secondary">Browse Cities</a><a href="tel:+16463392225"
-                    class="btn btn-secondary">Call Now</a></div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-nav">
-            <a href="index.html">Home</a>
-            <a href="book-online.html">Book Online</a>
-            <a href="menu.html">Menu</a>
-            <a href="cities.html">Cities</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="faq.html">FAQ</a>
-            <a href="contact.html">Contact</a>
-            <a href="sitemap.html">Sitemap</a>
-        </div>
-
-        <div class="footer-contact">
-            <p><strong>Phone:</strong> <a href="tel:+16463392225">(646) 339-2225</a></p>
-            <p><strong>Email:</strong> <a href="mailto:hibachinearby@gmail.com">hibachinearby@gmail.com</a></p>
-            <p><strong>Address:</strong> 5506 Supreme Drive, Raleigh, NC 27606</p>
-        </div>
-
-        <p class="footer-copy">© 2026 HibachiNearby.com. All rights reserved.</p>
-
-        <p class="footer-copy">
-            Website powered by
-            <a href="https://shuilink.com" target="_blank" rel="noopener noreferrer" class="footer-shuilink-link">⚡
-                ShuiLink</a>
-            — Booking systems, automation & growth tools
-        </p>
-    </footer>
-
-    <div class="desktop-cta-stack">
-        <a href="sms:+16463392225?&body=Hi, I want to check availability for a hibachi party."
-            class="desktop-text-now">Text Now To Check
-            Availability</a>
-        <a href="book-online.html" class="desktop-book-now">Book Now</a>
+    <div class="section-header">
+      <p class="eyebrow">A1 Experience</p>
+      <h2>Outdoor Hibachi That Feels Like A Real Party</h2>
+      <p class="section-subtitle">
+        A1 Hibachi Party is built for outdoor events where food, entertainment, and guest interaction all matter.
+        From backyard birthdays to rooftop dinners and private celebrations, we bring the full hibachi experience to you.
+      </p>
     </div>
 
-    <div class="mobile-cta-stack">
-        <a href="sms:+16463392225?&body=Hi, I want to check availability for a hibachi party."
-            class="mobile-text-now">Text Me To Book</a>
-        <a href="book-online.html" class="mobile-book-now">Book Now</a>
+    <div class="intro-highlight-grid">
+      <div class="intro-highlight-card">
+        <h3>Live Chef Entertainment</h3>
+        <p>
+          Your guests enjoy live hibachi cooking, chef interaction, fire show moments, and a full dinner experience
+          without leaving your home or event space.
+        </p>
+      </div>
+
+      <div class="intro-highlight-card">
+        <h3>Perfect For Celebrations</h3>
+        <p>
+          Great for birthdays, family gatherings, graduations, corporate events, anniversaries, rooftop parties,
+          poolside dinners, and private backyard events.
+        </p>
+      </div>
+
+      <div class="intro-highlight-card">
+        <h3>Easy Booking Flow</h3>
+        <p>
+          Submit your date, city, guest count, package, proteins, add-ons, and event details online.
+          Our team will review and confirm availability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="feature-split">
+      <img src="assets/images/fire-show/a1-hibachi-fire-show-flame-action-01.jpg" alt="A1 Hibachi Party live fire show for outdoor hibachi catering" />
+
+      <div class="feature-copy">
+        <p class="eyebrow">Live Fire Show</p>
+        <h2>Fresh Food, Big Energy, And A Show Your Guests Will Talk About</h2>
+        <p>
+          A1 Hibachi Party is more than catering. It is a private chef experience, live cooking show,
+          and outdoor dinner party in one. Our chef cooks fresh hibachi-style food in front of your guests,
+          creates fire show moments, and turns your event into something people remember.
+        </p>
+        <p>
+          Whether you are planning a backyard hibachi party in Brooklyn, a rooftop dinner in Manhattan,
+          a family event on Long Island, or a luxury private chef experience in Greenwich or Short Hills,
+          our goal is to make the booking simple and the event unforgettable.
+        </p>
+        <a href="book-online.html" class="btn-primary">Request My Booking</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">How It Works</p>
+      <h2>Book Your Private Hibachi Experience In 3 Simple Steps</h2>
+      <p class="section-subtitle">
+        Simple process. Fast response. Clear event details. No complicated restaurant reservation.
+      </p>
     </div>
 
-    <script>
-        const citySearchInput = document.getElementById("serviceCityInput");
-        const citySearchButton = document.getElementById("citySearchButton");
-        const cityChipButtons = document.querySelectorAll(".city-chip");
-        const citySearchHint = document.getElementById("citySearchHint");
-        const cityMobileTrigger = document.getElementById("cityMobileTrigger");
-        const cityMobileMenu = document.getElementById("cityMobileMenu");
-        const cityMobileItems = document.querySelectorAll(".city-mobile-item");
-        let selectedMobileCity = "";
-        const CITY_LIST = ["Charlotte", "Winston-Salem", "Greensboro", "Durham", "Raleigh", "Fayetteville", "Wilmington", "Kill Devil Hills", "Myrtle Beach", "Virginia Beach"];
-        const CITY_ALIASES = { "charlotte nc": "Charlotte", "winston salem": "Winston-Salem", "winston-salem nc": "Winston-Salem", "greensboro nc": "Greensboro", "durham nc": "Durham", "raleigh nc": "Raleigh", "fayetteville nc": "Fayetteville", "wilmington nc": "Wilmington", "kill devil hill": "Kill Devil Hills", "kill devil hills nc": "Kill Devil Hills", "myrtle beach sc": "Myrtle Beach", "virginia beach va": "Virginia Beach", "vb": "Virginia Beach" };
-        function normalizeInput(input) { return input.toLowerCase().trim(); }
-        function findClosestCity(input) { const val = normalizeInput(input); if (!val) return ""; if (CITY_ALIASES[val]) return CITY_ALIASES[val]; const exact = CITY_LIST.find(city => city.toLowerCase() === val.toLowerCase()); if (exact) return exact; const partial = CITY_LIST.find(city => city.toLowerCase().includes(val)); return partial || ""; }
-        function cityToSlug(city) { return city.toLowerCase().replace(/\s+/g, "-") + "-hibachi.html"; }
-        function goToCityOrBooking(cityValue) { const input = (cityValue || "").trim(); if (!input) { window.location.href = "book-online.html"; return; } const match = findClosestCity(input); if (match) { window.location.href = cityToSlug(match); } else { window.location.href = `contact.html?city=${encodeURIComponent(input)}`; } }
-        if (cityMobileTrigger && cityMobileMenu) { cityMobileTrigger.addEventListener("click", () => { cityMobileMenu.classList.toggle("open"); }); document.addEventListener("click", (e) => { if (!cityMobileTrigger.contains(e.target) && !cityMobileMenu.contains(e.target)) { cityMobileMenu.classList.remove("open"); } }); }
-        cityMobileItems.forEach(item => { item.addEventListener("click", () => { selectedMobileCity = item.dataset.city || ""; if (cityMobileTrigger) cityMobileTrigger.textContent = selectedMobileCity || "Choose your city"; if (citySearchHint) citySearchHint.textContent = selectedMobileCity ? `Go to ${selectedMobileCity} page` : ""; if (cityMobileMenu) cityMobileMenu.classList.remove("open"); }); });
-        if (citySearchButton) { citySearchButton.addEventListener("click", () => { const isMobile = window.innerWidth <= 768; const cityValue = isMobile ? selectedMobileCity : (citySearchInput ? citySearchInput.value : ""); goToCityOrBooking(cityValue); }); }
-        if (citySearchInput) { citySearchInput.addEventListener("input", () => { const match = findClosestCity(citySearchInput.value); if (citySearchInput.value.trim() === "") { citySearchHint.textContent = ""; } else if (match) { citySearchHint.textContent = `Go to ${match} page`; } else { citySearchHint.textContent = "We serve most cities across NC, SC, and VA. Contact us anyway."; } }); citySearchInput.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); goToCityOrBooking(citySearchInput.value); } }); }
-        cityChipButtons.forEach(button => { button.addEventListener("click", () => { goToCityOrBooking(button.dataset.city || ""); }); });
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
-        if (menuToggle && mobileMenu) { menuToggle.addEventListener("click", () => { mobileMenu.classList.toggle("menu-open"); const expanded = mobileMenu.classList.contains("menu-open"); menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false"); }); }
-    </script>
+    <div class="how-it-works-grid">
+      <div class="how-card">
+        <div class="how-card-icon">📍</div>
+        <h3>1. Choose Your City</h3>
+        <p class="how-card-main">Find your local service page</p>
+        <p>
+          Start with your city page so you can see local event ideas, setup notes, and booking links for your area.
+        </p>
+        <p class="how-card-small">
+          Featured areas include NYC, Long Island, Westchester, New Jersey, Connecticut, and Pennsylvania.
+        </p>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-icon">📝</div>
+        <h3>2. Submit Your Booking</h3>
+        <p class="how-card-main">Tell us about your event</p>
+        <p>
+          Enter your date, guest count, location, package choice, protein choices, add-ons, and special requests.
+        </p>
+        <p class="how-card-small">
+          The more details you provide, the faster we can confirm availability and pricing.
+        </p>
+      </div>
+
+      <div class="how-card">
+        <div class="how-card-icon">🔥</div>
+        <h3>3. Chef Comes To You</h3>
+        <p class="how-card-main">Enjoy outdoor hibachi at home</p>
+        <p>
+          Our chef arrives, sets up, cooks live, entertains your guests, and brings the A1 hibachi party energy.
+        </p>
+        <p class="how-card-small">
+          Outdoor space is required for safe hibachi cooking.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="menu.html" class="outline-btn">View Menu →</a>
+      <a href="faq.html" class="outline-btn">Read FAQ →</a>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="section-header">
+      <p class="eyebrow">Local SEO Service Areas</p>
+      <h2>Popular Cities We Serve</h2>
+      <p class="section-subtitle">
+        Explore our dedicated city pages for stronger local information, better event planning,
+        and direct booking links for each area.
+      </p>
+    </div>
+
+    <div class="city-home-grid">
+      <a class="city-card" href="manhattan-hibachi.html">
+        <small>New York City</small>
+        <h3>Manhattan, NY</h3>
+        <p>
+          Private hibachi catering for rooftop parties, luxury apartments, outdoor terraces, birthdays,
+          and upscale private events in Manhattan.
+        </p>
+        <span>View Manhattan Page →</span>
+      </a>
+
+      <a class="city-card" href="brooklyn-hibachi.html">
+        <small>Home Base</small>
+        <h3>Brooklyn, NY</h3>
+        <p>
+          Outdoor hibachi parties for Brooklyn backyards, patios, family gatherings, birthday parties,
+          graduations, and private chef dinners.
+        </p>
+        <span>View Brooklyn Page →</span>
+      </a>
+
+      <a class="city-card" href="queens-hibachi.html">
+        <small>New York City</small>
+        <h3>Queens, NY</h3>
+        <p>
+          At-home hibachi chef service for Queens backyards, driveways, birthdays, family dinners,
+          and special outdoor celebrations.
+        </p>
+        <span>View Queens Page →</span>
+      </a>
+
+      <a class="city-card" href="staten-island-hibachi.html">
+        <small>New York City</small>
+        <h3>Staten Island, NY</h3>
+        <p>
+          Backyard hibachi catering for Staten Island family parties, graduations, private dinners,
+          and outdoor celebrations.
+        </p>
+        <span>View Staten Island Page →</span>
+      </a>
+
+      <a class="city-card" href="long-island-hibachi.html">
+        <small>Nassau & Suffolk</small>
+        <h3>Long Island, NY</h3>
+        <p>
+          Private hibachi chef service across Long Island for backyard parties, summer events,
+          graduations, birthdays, and large gatherings.
+        </p>
+        <span>View Long Island Page →</span>
+      </a>
+
+      <a class="city-card" href="white-plains-hibachi.html">
+        <small>Westchester</small>
+        <h3>White Plains, NY</h3>
+        <p>
+          Outdoor hibachi catering for White Plains birthdays, corporate events, family gatherings,
+          and backyard celebrations.
+        </p>
+        <span>View White Plains Page →</span>
+      </a>
+
+      <a class="city-card" href="scarsdale-hibachi.html">
+        <small>Westchester Luxury</small>
+        <h3>Scarsdale, NY</h3>
+        <p>
+          Luxury hibachi catering for Scarsdale private homes, upscale backyard dinners,
+          birthdays, graduations, and premium family events.
+        </p>
+        <span>View Scarsdale Page →</span>
+      </a>
+
+      <a class="city-card" href="stamford-hibachi.html">
+        <small>Connecticut</small>
+        <h3>Stamford, CT</h3>
+        <p>
+          Outdoor hibachi parties for Stamford birthdays, family gatherings, corporate dinners,
+          graduations, and backyard celebrations.
+        </p>
+        <span>View Stamford Page →</span>
+      </a>
+
+      <a class="city-card" href="greenwich-hibachi.html">
+        <small>Connecticut Luxury</small>
+        <h3>Greenwich, CT</h3>
+        <p>
+          Private hibachi chef experiences for Greenwich homes, patios, poolside dinners,
+          upscale outdoor parties, and family gatherings.
+        </p>
+        <span>View Greenwich Page →</span>
+      </a>
+
+      <a class="city-card" href="jersey-city-hibachi.html">
+        <small>New Jersey</small>
+        <h3>Jersey City, NJ</h3>
+        <p>
+          Private hibachi catering for Jersey City rooftops, apartment amenity spaces,
+          homes, birthdays, and private gatherings.
+        </p>
+        <span>View Jersey City Page →</span>
+      </a>
+
+      <a class="city-card" href="short-hills-hibachi.html">
+        <small>New Jersey Luxury</small>
+        <h3>Short Hills, NJ</h3>
+        <p>
+          Premium outdoor hibachi catering for Short Hills private estates, luxury backyard dinners,
+          poolside events, and upscale parties.
+        </p>
+        <span>View Short Hills Page →</span>
+      </a>
+
+      <a class="city-card" href="philadelphia-hibachi.html">
+        <small>Pennsylvania</small>
+        <h3>Philadelphia, PA</h3>
+        <p>
+          Private outdoor hibachi catering for Philadelphia backyard parties, birthdays,
+          graduation celebrations, corporate events, and special events.
+        </p>
+        <span>View Philadelphia Page →</span>
+      </a>
+
+      <a class="city-card" href="gladwyne-hibachi.html">
+        <small>Pennsylvania Luxury</small>
+        <h3>Gladwyne, PA</h3>
+        <p>
+          Luxury hibachi catering for Gladwyne private estates, upscale backyard dinners,
+          anniversaries, birthdays, and exclusive gatherings.
+        </p>
+        <span>View Gladwyne Page →</span>
+      </a>
+    </div>
+
+    <p class="section-note">
+      Not seeing your exact city? Contact us anyway. A1 Hibachi Party may still be able to serve your area depending on distance, traffic, date, and event size.
+    </p>
+
+    <div class="hero-actions">
+      <a href="cities.html" class="outline-btn">View All Cities →</a>
+      <a href="contact.html" class="outline-btn">Ask About My City →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Regional Coverage</p>
+      <h2>Outdoor Hibachi Catering Across NY, NJ, CT & PA</h2>
+      <p class="section-subtitle">
+        A1 Hibachi Party is designed for customers searching for local hibachi catering,
+        private hibachi chefs, and backyard hibachi parties near their city.
+      </p>
+    </div>
+
+    <div class="area-grid">
+      <div class="area-card">
+        <h3>NYC Hibachi Catering</h3>
+        <p>
+          Manhattan rooftops, Brooklyn backyards, Queens homes, Staten Island parties,
+          and local outdoor celebrations across New York City.
+        </p>
+      </div>
+
+      <div class="area-card">
+        <h3>Long Island & Westchester</h3>
+        <p>
+          Backyard hibachi parties, graduation celebrations, upscale family gatherings,
+          and private home events across Long Island and Westchester.
+        </p>
+      </div>
+
+      <div class="area-card">
+        <h3>New Jersey Hibachi</h3>
+        <p>
+          Jersey City rooftops, Short Hills luxury events, North Jersey homes,
+          patios, driveways, and outdoor event spaces.
+        </p>
+      </div>
+
+      <div class="area-card">
+        <h3>Connecticut & Pennsylvania</h3>
+        <p>
+          Stamford, Greenwich, Philadelphia, Gladwyne, and other event locations depending on distance,
+          timing, and availability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="seo-copy-box">
+      <p>
+        A1 Hibachi Party specializes in <strong>outdoor hibachi catering near me</strong>,
+        <strong>private hibachi chef near me</strong>, <strong>backyard hibachi party catering</strong>,
+        and <strong>at-home hibachi experiences</strong> across NYC, Long Island, Westchester,
+        New Jersey, Connecticut, and Pennsylvania. Customers book A1 Hibachi Party for birthdays,
+        graduations, family gatherings, corporate events, rooftop dinners, luxury backyard parties,
+        poolside events, and private celebrations where food and entertainment both matter.
+      </p>
+
+      <p style="margin-top:18px;">
+        Our homepage connects directly to dedicated local pages for Manhattan, Brooklyn, Queens,
+        Staten Island, Long Island, White Plains, Scarsdale, Stamford, Greenwich, Jersey City,
+        Short Hills, Philadelphia, and Gladwyne. These city pages help customers find the right local
+        service area, understand the best outdoor setup, and continue into the booking process with confidence.
+      </p>
+    </div>
+  </section>
+    <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Gallery</p>
+      <h2>Real A1 Hibachi Party Events</h2>
+      <p class="section-subtitle">
+        Real setups. Real guests. Real outdoor hibachi experiences across NYC, Long Island, New Jersey, Connecticut, and Pennsylvania.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="assets/images/fire-show/a1-hibachi-fire-show-flame-action-01.jpg" alt="hibachi fire show catering event" />
+      <img src="assets/images/party-setup/a1-hibachi-elegant-dinner-setup-night-01.jpg" alt="elegant hibachi catering setup night" />
+      <img src="assets/images/party-setup/a1-hibachi-large-backyard-party-setup-01.jpg" alt="large backyard hibachi party setup" />
+      <img src="assets/images/people/a1-hibachi-chef-with-guests-01.jpg" alt="hibachi chef cooking for guests" />
+      <img src="assets/images/people/a1-hibachi-family-backyard-party-01.jpg" alt="family backyard hibachi party" />
+      <img src="assets/images/people/a1-hibachi-teen-birthday-party-01.jpg" alt="birthday hibachi party celebration" />
+    </div>
+
+    <div class="hero-actions">
+      <a href="gallery.html" class="outline-btn">View Full Gallery →</a>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="section-header">
+      <p class="eyebrow">Live Setup</p>
+      <h2>See The A1 Hibachi Setup In Action</h2>
+      <p class="section-subtitle">
+        Watch how our outdoor hibachi setup works before the chef even starts cooking.
+      </p>
+    </div>
+
+    <div class="social-video">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/a1-hibachi-party-setup-short.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="eyebrow">Reviews</p>
+      <h2>Customers Love The A1 Experience</h2>
+      <p class="section-subtitle">
+        Food, fire show, and energy — the combination that makes every event memorable.
+      </p>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>
+          The chef turned dinner into a full show. Everyone was laughing, recording videos,
+          and talking about it all night.
+        </p>
+        <span class="review-name">— Birthday Host</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>
+          Way better than going to a restaurant. Private, fun, and super easy.
+        </p>
+        <span class="review-name">— Backyard Party Guest</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>
+          Perfect for family events. Food was great and the experience made it unforgettable.
+        </p>
+        <span class="review-name">— Family Event</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="section-header">
+      <p class="eyebrow">FAQ</p>
+      <h2>Before You Book</h2>
+      <p class="section-subtitle">
+        Quick answers to common questions about outdoor hibachi catering.
+      </p>
+    </div>
+
+    <div class="faq-preview-grid">
+      <div class="faq-preview-card">
+        <h3>Do you cook indoors?</h3>
+        <p>Outdoor setup is required for safety and space.</p>
+      </div>
+
+      <div class="faq-preview-card">
+        <h3>What do I need?</h3>
+        <p>Tables, chairs, plates, utensils, and outdoor space.</p>
+      </div>
+
+      <div class="faq-preview-card">
+        <h3>What if my city isn’t listed?</h3>
+        <p>We may still serve your area. Contact us to confirm.</p>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="faq.html" class="outline-btn">View Full FAQ →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="final-cta-box">
+      <p class="eyebrow">Ready To Book?</p>
+      <h2>Start Your A1 Hibachi Party Today</h2>
+      <p class="section-subtitle">
+        Choose your city, submit your event details, and our team will confirm availability and pricing.
+      </p>
+
+      <div class="cta-split-actions">
+        <a href="cities.html" class="btn-primary">Choose Your City</a>
+        <a href="book-online.html" class="btn-secondary">Book Directly</a>
+        <a href="sms:+16463582225" class="btn-secondary">Text Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="book-online.html">Book Online</a>
+      <a href="menu.html">Menu</a>
+      <a href="cities.html">Cities</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-contact">
+      <p><strong>Phone:</strong> <a href="tel:+16463582225">(646) 358-2225</a></p>
+      <p><strong>Email:</strong> <a href="mailto:a1hibachiparty@gmail.com">a1hibachiparty@gmail.com</a></p>
+      <p><strong>Address:</strong> Brooklyn, NY</p>
+    </div>
+
+    <p class="footer-copy">© 2026 A1 Hibachi Party. All rights reserved.</p>
+  </footer>
+
+  <div class="desktop-cta-stack">
+    <a href="sms:+16463582225" class="desktop-text-now">Text Now</a>
+    <a href="cities.html" class="desktop-book-now">Choose City</a>
+  </div>
+
+  <div class="mobile-cta-stack">
+    <a href="sms:+16463582225" class="mobile-text-now">Text Me</a>
+    <a href="cities.html" class="mobile-book-now">Choose City</a>
+  </div>
+
+  <script>
+    const CITY_PAGE_MAP = {
+      "manhattan": "manhattan-hibachi.html",
+      "brooklyn": "brooklyn-hibachi.html",
+      "queens": "queens-hibachi.html",
+      "staten island": "staten-island-hibachi.html",
+      "long island": "long-island-hibachi.html",
+      "white plains": "white-plains-hibachi.html",
+      "scarsdale": "scarsdale-hibachi.html",
+      "stamford": "stamford-hibachi.html",
+      "greenwich": "greenwich-hibachi.html",
+      "jersey city": "jersey-city-hibachi.html",
+      "short hills": "short-hills-hibachi.html",
+      "philadelphia": "philadelphia-hibachi.html",
+      "gladwyne": "gladwyne-hibachi.html"
+    };
+
+    function findCityPage(input) {
+      const val = input.toLowerCase().trim();
+      if (CITY_PAGE_MAP[val]) return CITY_PAGE_MAP[val];
+
+      return Object.keys(CITY_PAGE_MAP).find(city =>
+        val.includes(city)
+      );
+    }
+
+    function goToCityPage(value) {
+      if (!value) {
+        window.location.href = "cities.html";
+        return;
+      }
+
+      const match = findCityPage(value);
+
+      if (match) {
+        window.location.href = CITY_PAGE_MAP[match] || match;
+      } else {
+        window.location.href = "contact.html?city=" + encodeURIComponent(value);
+      }
+    }
+
+    document.getElementById("citySearchButton").addEventListener("click", () => {
+      goToCityPage(document.getElementById("serviceCityInput").value);
+    });
+
+    document.querySelectorAll(".city-chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        goToCityPage(btn.dataset.city);
+      });
+    });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("menu-open");
+    });
+  </script>
+
 </body>
-
 </html>
