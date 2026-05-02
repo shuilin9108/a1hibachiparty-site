@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "new-york",
+    "city": "New York",
+    "region": "Northeast",
+    "file": "new-york.html"
+  },
+  {
+    "slug": "long-island",
+    "city": "Long Island",
+    "region": "Northeast",
+    "file": "long-island.html"
+  },
+  {
+    "slug": "miami",
+    "city": "Miami",
+    "region": "Southeast",
+    "file": "miami.html"
+  },
+  {
+    "slug": "orlando",
+    "city": "Orlando",
+    "region": "Southeast",
+    "file": "orlando.html"
+  },
+  {
+    "slug": "albany",
+    "city": "Albany",
+    "region": "Northeast",
+    "file": "albany.html"
+  },
+  {
+    "slug": "buffalo",
+    "city": "Buffalo",
+    "region": "Northeast",
+    "file": "buffalo.html"
+  },
+  {
+    "slug": "syracuse",
+    "city": "Syracuse",
+    "region": "Northeast",
+    "file": "syracuse.html"
+  },
+  {
+    "slug": "new-jersey",
+    "city": "New Jersey",
+    "region": "Northeast",
+    "file": "new-jersey.html"
+  },
+  {
+    "slug": "boston",
+    "city": "Boston",
+    "region": "Northeast",
+    "file": "boston.html"
+  },
+  {
+    "slug": "philadelphia",
+    "city": "Philadelphia",
+    "region": "Northeast",
+    "file": "philadelphia.html"
+  },
+  {
+    "slug": "chicago",
+    "city": "Chicago",
+    "region": "Midwest",
+    "file": "chicago.html"
+  },
+  {
+    "slug": "detroit",
+    "city": "Detroit",
+    "region": "Midwest",
+    "file": "detroit.html"
+  },
+  {
+    "slug": "los-angeles",
+    "city": "Los Angeles",
+    "region": "West Coast",
+    "file": "los-angeles.html"
+  },
+  {
+    "slug": "phoenix",
+    "city": "Phoenix",
+    "region": "West Coast",
+    "file": "phoenix.html"
+  }
+]

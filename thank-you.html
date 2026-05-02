@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Thank You | Hibachi by ShuiLink</title>
+  <meta name="description"
+    content="Your hibachi booking request has been submitted successfully. Complete your deposit to secure your event." />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .thankyou-page {
+      min-height: 100vh;
+      background: #f7f7f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .thankyou-card {
+      width: 100%;
+      max-width: 720px;
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px 28px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      text-align: center;
+    }
+
+    .thankyou-title {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .thankyou-text {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .thankyou-box {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    .thankyou-box p {
+      margin: 6px 0;
+      font-size: 15px;
+    }
+
+    .thankyou-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .thankyou-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .primary {
+      background: #111;
+      color: #fff;
+    }
+
+    .secondary {
+      background: #fff;
+      border: 1px solid #ddd;
+      color: #111;
+    }
+
+    .status-text {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .floating-contact {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">🔥 Hibachi by ShuiLink</a>
+    </div>
+  </nav>
+
+  <main class="thankyou-page">
+    <div class="thankyou-card">
+
+      <h1 class="thankyou-title">🎉 Thank You!</h1>
+
+      <p class="thankyou-text">
+        Your booking request has been received.  
+        Please complete your deposit to secure your event.
+      </p>
+
+      <div class="thankyou-box">
+        <p><strong>Name:</strong> <span id="customerName">Guest</span></p>
+        <p><strong>Booking ID:</strong> <span id="bookingId">N/A</span></p>
+      </div>
+
+      <div class="thankyou-actions">
+        <button id="payDepositBtn" class="thankyou-btn primary">
+          Pay Deposit Now
+        </button>
+
+        <a href="book-online.html" class="thankyou-btn secondary">
+          Book Another Event
+        </a>
+
+        <a href="index.html" class="thankyou-btn secondary">
+          Back to Home
+        </a>
+      </div>
+
+      <p id="statusMessage" class="status-text"></p>
+
+    </div>
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const bookingId = params.get("bookingId") || "";
+    const customerName = params.get("name") || "Guest";
+
+    document.getElementById("bookingId").textContent = bookingId || "N/A";
+    document.getElementById("customerName").textContent = customerName;
+
+    const payBtn = document.getElementById("payDepositBtn");
+    const status = document.getElementById("statusMessage");
+
+    payBtn.addEventListener("click", async () => {
+      if (!bookingId) {
+        status.textContent = "Missing booking ID.";
+        return;
+      }
+
+      try {
+        payBtn.disabled = true;
+        payBtn.textContent = "Opening payment...";
+
+        const res = await fetch("https://hibachifinder-api.onrender.com/api/create-deposit-checkout", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            bookingId,
+            customerName,
+            amount: 50
+          })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.url) {
+          throw new Error(data.error || "Failed to create checkout");
+        }
+
+        window.location.href = data.url;
+
+      } catch (err) {
+        status.textContent = err.message || "Something went wrong.";
+        payBtn.disabled = false;
+        payBtn.textContent = "Pay Deposit Now";
+      }
+    });
+  </script>
+
+  <!-- FLOAT BUTTON -->
+  <div class="floating-contact">
+    <a href="sms:+16463392225">💬 Text</a>
+    <a href="tel:16463392225">📞 Call</a>
+  </div>
+
+</body>
+
+</html>
