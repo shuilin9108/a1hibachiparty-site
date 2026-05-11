@@ -1,604 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Thank You | A1 Hibachi Party</title>
-<meta name="description" content="Thank you for booking A1 Hibachi Party. View your outdoor hibachi catering booking details, deposit amount, total price, event information, and next steps." />
-<link rel="canonical" href="https://www.a1hibachiparty.com/thank-you.html" />
-
-<link rel="icon" href="assets/logos/logo-favicon.png" />
-<link rel="stylesheet" href="style.css" />
-
-<script>
-const API_BASE = "https://hibachifinder-booking-api.vercel.app";
-
-window.onload = function () {
-  hydrate();
-};
-
-function money(v) {
-  return "$" + Number(v || 0).toFixed(2);
-}
-
-function set(id, val) {
-  document.querySelectorAll(`#${id}`).forEach((el) => {
-    el.innerText = val;
-  });
-}
-
-function getBookingIdFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("bookingId") || "";
-}
-
-function buildAddress(address) {
-  if (!address) return "Not provided";
-
-  const parts = [
-    address.street,
-    address.city,
-    address.state,
-    address.zipCode
-  ].filter(Boolean);
-
-  return parts.length ? parts.join(", ") : "Not provided";
-}
-
-function buildProteinSummary(proteins = {}) {
-  const entries = Object.entries(proteins || {}).filter(
-    ([, quantity]) => Number(quantity || 0) > 0
-  );
-
-  if (!entries.length) return "TBD";
-
-  return entries
-    .map(([proteinId, quantity]) => `${proteinId} x${quantity}`)
-    .join(", ");
-}
-
-async function fetchBookingById(bookingId) {
-  const res = await fetch(`${API_BASE}/api/bookings/${encodeURIComponent(bookingId)}`);
-  const data = await res.json();
-
-  if (!res.ok || !data) {
-    throw new Error(data?.error || "Booking not found");
-  }
-
-  return data.booking || data.data || data;
-}
-
-function renderBooking(booking) {
-  const customer = booking.customer || {};
-  const event = booking.event || {};
-  const selection = booking.selection || {};
-  const shared = booking.shared || {};
-  const pricing = booking.pricingSnapshot || {};
-
-  const bookingId = booking.bookingId || "Pending";
-
-  const subtotalBeforeDiscount = Number(pricing.subtotalBeforeDiscount || 0);
-  const birthdayDiscount = Number(pricing.birthdayDiscount || 0);
-  const promoDiscount = Number(pricing.promoCodeDiscount || 0);
-  const discountedSubtotal = Number(pricing.subtotal || 0);
-  const tax = Number(pricing.tax || 0);
-  const totalPrice = Number(pricing.totalPrice || pricing.total || 0);
-
-  const depositAmount = Number(pricing.deposit || 50);
-  const remainingBalance = Math.max(0, totalPrice - depositAmount);
-
-  const travelMiles = Number(pricing.travelMiles || 0);
-  const travelFee = Number(pricing.travelFee || 0);
-
-  const mealDecision =
-    selection.mealDecision === "now"
-      ? "Protein selections were provided"
-      : "Protein selections will be confirmed later by staff";
-
-  const adultProteins =
-    selection.mealDecision === "now"
-      ? buildProteinSummary(selection?.proteins?.adult)
-      : "TBD";
-
-  const kidProteins =
-    selection.mealDecision === "now"
-      ? buildProteinSummary(selection?.proteins?.kid)
-      : "TBD";
-
-  set("bookingId", bookingId);
-
-  set(
-    "name",
-    customer.name ||
-      `${customer.firstName || ""} ${customer.lastName || ""}`.trim() ||
-      "Not provided"
-  );
-
-  set("phone", customer.phone || "Not provided");
-  set("email", customer.email || "Not provided");
-
-  set("date", event.date || "Not selected");
-  set("time", event.time || "Not selected");
-  set("address", buildAddress(event.address));
-
-  set("guests", event.guestCount || 0);
-  set("adults", event.adultCount || 0);
-  set("kids", event.kidCount || 0);
-
-  set("package", pricing.packageName || "Not selected");
-
-  set("travelMiles", `${travelMiles} mi`);
-  set("travelFee", money(travelFee));
-
-  set("subtotalBeforeDiscount", money(subtotalBeforeDiscount));
-  set("birthdayDiscount", "-" + money(birthdayDiscount));
-  set("promoDiscount", "-" + money(promoDiscount));
-  set("discountedSubtotal", money(discountedSubtotal));
-  set("tax", money(tax));
-
-  set("total", money(totalPrice));
-  set("deposit", money(depositAmount));
-  set("remain", money(remainingBalance));
-
-  set("mealDecision", mealDecision);
-  set("adultProteins", adultProteins);
-  set("kidProteins", kidProteins);
-
-  set("promo", shared.promoCode || "None");
-}
-
-async function hydrate() {
-  const bookingId = getBookingIdFromUrl();
-
-  if (!bookingId) {
-    set("bookingId", "Pending");
-    return;
-  }
-
-  try {
-    set("bookingId", bookingId);
-    const booking = await fetchBookingById(bookingId);
-    renderBooking(booking);
-  } catch (error) {
-    console.error("Failed to load booking:", error);
-    set("bookingId", bookingId);
-  }
-}
-</script>
-
-<style>
-body {
-  margin: 0;
-  background: #f7f8fc;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #111827;
-}
-
-.thank-page {
-  min-height: 100vh;
-}
-
-.thank-shell {
-  max-width: 920px;
-  margin: 56px auto;
-  padding: 0 16px;
-}
-
-.thank-card {
-  background: #fff;
-  border-radius: 24px;
-  padding: 34px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 16px 40px rgba(0,0,0,.08);
-}
-
-.thank-logo {
-  width: min(360px, 90vw);
-  max-height: 150px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 24px;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(30px, 5vw, 44px);
-  font-weight: 900;
-  line-height: 1.1;
-  text-align: center;
-}
-
-.subtitle {
-  margin: 16px auto 0;
-  color: #6b7280;
-  line-height: 1.8;
-  text-align: center;
-  max-width: 720px;
-}
-
-.badge {
-  margin: 22px auto 0;
-  display: table;
-  background: #ecfdf3;
-  border: 1px solid #abefc6;
-  color: #027a48;
-  border-radius: 999px;
-  padding: 10px 16px;
-  font-weight: 800;
-}
-
-.depositHero {
-  margin-top: 26px;
-  padding: 24px;
-  border-radius: 20px;
-  background: #111827;
-  color: #fff;
-}
-
-.depositHeroTitle {
-  font-size: .95rem;
-  font-weight: 800;
-  opacity: .9;
-}
-
-.depositHeroAmount {
-  font-size: 2.25rem;
-  font-weight: 900;
-  margin-top: 8px;
-  line-height: 1.1;
-}
-
-.depositHeroText {
-  margin-top: 12px;
-  line-height: 1.7;
-  opacity: .95;
-}
-
-.depositButton {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 14px 20px;
-  border-radius: 999px;
-  background: #dc2626;
-  color: #fff;
-  font-weight: 900;
-  text-decoration: none;
-}
-
-.depositFootnote {
-  margin-top: 12px;
-  font-size: .9rem;
-  opacity: .82;
-  line-height: 1.5;
-}
-
-.sectionBlock {
-  margin-top: 26px;
-  padding-top: 22px;
-  border-top: 1px solid #e5e7eb;
-}
-
-.sectionTitle {
-  margin: 0 0 14px 0;
-  font-size: 1.15rem;
-  font-weight: 900;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 9px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.rowColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 9px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.row span,
-.rowColumn span {
-  color: #6b7280;
-}
-
-.noticeBox {
-  margin-top: 26px;
-  padding: 18px;
-  border-radius: 18px;
-  background: #fff5f5;
-  border: 1px solid rgba(220,38,38,.22);
-  color: #475467;
-  line-height: 1.8;
-}
-
-.noticeTitle {
-  font-weight: 900;
-  color: #111827;
-  margin-bottom: 8px;
-}
-
-.actions {
-  margin-top: 26px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.primaryButton,
-.secondaryButton {
-  padding: 13px 18px;
-  border-radius: 999px;
-  font-weight: 900;
-  text-decoration: none;
-}
-
-.primaryButton {
-  background: #dc2626;
-  color: #fff;
-}
-
-.secondaryButton {
-  border: 1px solid #d1d5db;
-  background: #fff;
-  color: #111827;
-}
-
-@media(max-width:768px) {
-  .thank-shell {
-    margin: 32px auto;
-  }
-
-  .thank-card {
-    padding: 24px 18px;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 4px;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Thank You | A1 Hibachi Party</title>
+  <meta name="description"
+    content="Thank you for booking A1 Hibachi Party. View your outdoor hibachi catering booking details, deposit amount, total price, event information, and next steps." />
+  <link rel="canonical" href="https://www.a1hibachiparty.com/thank-you.html" />
+
+  <link rel="icon" href="assets/logos/logo-favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    const API_BASE = "https://hibachifinder-booking-api.vercel.app";
+
+    window.onload = function () {
+      hydrate();
+    };
+
+    function money(v) {
+      return "$" + Number(v || 0).toFixed(2);
+    }
+
+    function set(id, val) {
+      document.querySelectorAll(`#${id}`).forEach((el) => {
+        el.innerText = val;
+      });
+    }
+
+    function getBookingIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("bookingId") || "";
+    }
+
+    function buildAddress(address) {
+      if (!address) return "Not provided";
+
+      const parts = [
+        address.street,
+        address.city,
+        address.state,
+        address.zipCode
+      ].filter(Boolean);
+
+      return parts.length ? parts.join(", ") : "Not provided";
+    }
+
+    function buildProteinSummary(proteins = {}) {
+      const entries = Object.entries(proteins || {}).filter(
+        ([, quantity]) => Number(quantity || 0) > 0
+      );
+
+      if (!entries.length) return "TBD";
+
+      return entries
+        .map(([proteinId, quantity]) => `${proteinId} x${quantity}`)
+        .join(", ");
+    }
+
+    async function fetchBookingById(bookingId) {
+      const res = await fetch(`${API_BASE}/api/bookings/${encodeURIComponent(bookingId)}`);
+      const data = await res.json();
+
+      if (!res.ok || !data) {
+        throw new Error(data?.error || "Booking not found");
+      }
+
+      return data.booking || data.data || data;
+    }
+
+    function renderBooking(booking) {
+      const customer = booking.customer || {};
+      const event = booking.event || {};
+      const selection = booking.selection || {};
+      const shared = booking.shared || {};
+      const pricing = booking.pricingSnapshot || {};
+
+      const bookingId = booking.bookingId || "Pending";
+
+      const subtotalBeforeDiscount = Number(pricing.subtotalBeforeDiscount || 0);
+      const birthdayDiscount = Number(pricing.birthdayDiscount || 0);
+      const promoDiscount = Number(pricing.promoCodeDiscount || 0);
+      const discountedSubtotal = Number(pricing.subtotal || 0);
+      const tax = Number(pricing.tax || 0);
+      const totalPrice = Number(pricing.totalPrice || pricing.total || 0);
+
+      const depositAmount = Number(pricing.deposit || 50);
+      const remainingBalance = Math.max(0, totalPrice - depositAmount);
+
+      const travelMiles = Number(pricing.travelMiles || 0);
+      const travelFee = Number(pricing.travelFee || 0);
+
+      const mealDecision =
+        selection.mealDecision === "now"
+          ? "Protein selections were provided"
+          : "Protein selections will be confirmed later by staff";
+
+      const adultProteins =
+        selection.mealDecision === "now"
+          ? buildProteinSummary(selection?.proteins?.adult)
+          : "TBD";
+
+      const kidProteins =
+        selection.mealDecision === "now"
+          ? buildProteinSummary(selection?.proteins?.kid)
+          : "TBD";
+
+      set("bookingId", bookingId);
+
+      set(
+        "name",
+        customer.name ||
+        `${customer.firstName || ""} ${customer.lastName || ""}`.trim() ||
+        "Not provided"
+      );
+
+      set("phone", customer.phone || "Not provided");
+      set("email", customer.email || "Not provided");
+
+      set("date", event.date || "Not selected");
+      set("time", event.time || "Not selected");
+      set("address", buildAddress(event.address));
+
+      set("guests", event.guestCount || 0);
+      set("adults", event.adultCount || 0);
+      set("kids", event.kidCount || 0);
+
+      set("package", pricing.packageName || "Not selected");
+
+      set("travelMiles", `${travelMiles} mi`);
+      set("travelFee", money(travelFee));
+
+      set("subtotalBeforeDiscount", money(subtotalBeforeDiscount));
+      set("birthdayDiscount", "-" + money(birthdayDiscount));
+      set("promoDiscount", "-" + money(promoDiscount));
+      set("discountedSubtotal", money(discountedSubtotal));
+      set("tax", money(tax));
+
+      set("total", money(totalPrice));
+      set("deposit", money(depositAmount));
+      set("remain", money(remainingBalance));
+
+      set("mealDecision", mealDecision);
+      set("adultProteins", adultProteins);
+      set("kidProteins", kidProteins);
+      set("addOnsDetails", pricing.addOnsDetails || "None");
+
+      set("promo", shared.promoCode || "None");
+    }
+
+    async function hydrate() {
+      const bookingId = getBookingIdFromUrl();
+
+      if (!bookingId) {
+        set("bookingId", "Pending");
+        return;
+      }
+
+      try {
+        set("bookingId", bookingId);
+        const booking = await fetchBookingById(bookingId);
+        renderBooking(booking);
+      } catch (error) {
+        console.error("Failed to load booking:", error);
+        set("bookingId", bookingId);
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #f7f8fc;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111827;
+    }
+
+    .thank-page {
+      min-height: 100vh;
+    }
+
+    .thank-shell {
+      max-width: 920px;
+      margin: 56px auto;
+      padding: 0 16px;
+    }
+
+    .thank-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 34px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .08);
+    }
+
+    .thank-logo {
+      width: min(360px, 90vw);
+      max-height: 150px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 900;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .subtitle {
+      margin: 16px auto 0;
+      color: #6b7280;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 720px;
+    }
+
+    .badge {
+      margin: 22px auto 0;
+      display: table;
+      background: #ecfdf3;
+      border: 1px solid #abefc6;
+      color: #027a48;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 800;
+    }
+
+    .depositHero {
+      margin-top: 26px;
+      padding: 24px;
+      border-radius: 20px;
+      background: #111827;
+      color: #fff;
+    }
+
+    .depositHeroTitle {
+      font-size: .95rem;
+      font-weight: 800;
+      opacity: .9;
+    }
+
+    .depositHeroAmount {
+      font-size: 2.25rem;
+      font-weight: 900;
+      margin-top: 8px;
+      line-height: 1.1;
+    }
+
+    .depositHeroText {
+      margin-top: 12px;
+      line-height: 1.7;
+      opacity: .95;
+    }
+
+    .depositButton {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #dc2626;
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .depositFootnote {
+      margin-top: 12px;
+      font-size: .9rem;
+      opacity: .82;
+      line-height: 1.5;
+    }
+
+    .sectionBlock {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .sectionTitle {
+      margin: 0 0 14px 0;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .rowColumn {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 9px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .row span,
+    .rowColumn span {
+      color: #6b7280;
+    }
+
+    .noticeBox {
+      margin-top: 26px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff5f5;
+      border: 1px solid rgba(220, 38, 38, .22);
+      color: #475467;
+      line-height: 1.8;
+    }
+
+    .noticeTitle {
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .actions {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .primaryButton {
+      background: #dc2626;
+      color: #fff;
+    }
+
+    .secondaryButton {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #111827;
+    }
+
+    @media(max-width:768px) {
+      .thank-shell {
+        margin: 32px auto;
+      }
+
+      .thank-card {
+        padding: 24px 18px;
+      }
+
+      .row {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
 
 <body class="thank-page">
 
-<div class="topbar">
-  Outdoor Hibachi Catering · NYC · Long Island · Westchester · NJ · CT · PA
-</div>
-
-<nav class="navbar">
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/logos/logo-main.png" alt="A1 Hibachi Party logo" class="site-logo" />
-    </a>
+  <div class="topbar">
+    Outdoor Hibachi Catering · NYC · Long Island · Westchester · NJ · CT · PA
   </div>
 
-  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
-
-  <div class="menu" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="book-online.html">Book Online</a>
-    <a href="menu.html">Menu</a>
-    <a href="cities.html">Cities</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-  <a href="book-online.html" class="nav-btn">Book Again</a>
-</nav>
-
-<main class="thank-shell">
-  <div class="thank-card">
-
-    <img src="assets/logos/logo-banner-wide-dark.png" alt="A1 Hibachi Party" class="thank-logo" />
-
-    <h1>Thank you — your booking request has been submitted.</h1>
-
-    <p class="subtitle">
-      Our team will review your A1 Hibachi Party booking details and reach out shortly to confirm
-      availability, pricing, travel fee if needed, and final event details.
-    </p>
-
-    <div class="badge">
-      Booking ID: <span id="bookingId"></span>
-    </div>
-
-    <div class="depositHero">
-      <div class="depositHeroTitle">Secure Your Spot Faster</div>
-
-      <div class="depositHeroAmount">
-        Pay <span id="deposit"></span> Deposit Now
-      </div>
-
-      <div class="depositHeroText">
-        Total Price:
-        <strong id="total"></strong>
-        <br>
-        Remaining After Deposit Payment:
-        <strong id="remain"></strong>
-      </div>
-
-      <a
-        href="https://buy.stripe.com/8x2eVd00q61PgiUg1WfjG01"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="depositButton">
-        Pay Deposit Now
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logos/logo-main.png" alt="A1 Hibachi Party logo" class="site-logo" />
       </a>
-
-      <div class="depositFootnote">
-        Paying the deposit is optional. You can also wait for our team to contact you.
-      </div>
     </div>
 
-    <div class="sectionBlock">
-      <h2 class="sectionTitle">Customer</h2>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
 
-      <div class="row">
-        <span>Name</span>
-        <strong id="name"></strong>
-      </div>
-
-      <div class="row">
-        <span>Phone</span>
-        <strong id="phone"></strong>
-      </div>
-
-      <div class="row">
-        <span>Email</span>
-        <strong id="email"></strong>
-      </div>
+    <div class="menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="book-online.html">Book Online</a>
+      <a href="menu.html">Menu</a>
+      <a href="cities.html">Cities</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <div class="sectionBlock">
-      <h2 class="sectionTitle">Event</h2>
+    <a href="book-online.html" class="nav-btn">Book Again</a>
+  </nav>
 
-      <div class="row">
-        <span>Date</span>
-        <strong id="date"></strong>
+  <main class="thank-shell">
+    <div class="thank-card">
+
+      <img src="assets/logos/logo-banner-wide-dark.png" alt="A1 Hibachi Party" class="thank-logo" />
+
+      <h1>Thank you — your booking request has been submitted.</h1>
+
+      <p class="subtitle">
+        Our team will review your A1 Hibachi Party booking details and reach out shortly to confirm
+        availability, pricing, travel fee if needed, and final event details.
+      </p>
+
+      <div class="badge">
+        Booking ID: <span id="bookingId"></span>
       </div>
 
-      <div class="row">
-        <span>Time</span>
-        <strong id="time"></strong>
+      <div class="depositHero">
+        <div class="depositHeroTitle">Secure Your Spot Faster</div>
+
+        <div class="depositHeroAmount">
+          Pay <span id="deposit"></span> Deposit Now
+        </div>
+
+        <div class="depositHeroText">
+          Total Price:
+          <strong id="total"></strong>
+          <br>
+          Remaining After Deposit Payment:
+          <strong id="remain"></strong>
+        </div>
+
+        <a href="https://buy.stripe.com/8x2eVd00q61PgiUg1WfjG01" target="_blank" rel="noopener noreferrer"
+          class="depositButton">
+          Pay Deposit Now
+        </a>
+
+        <div class="depositFootnote">
+          Paying the deposit is optional. You can also wait for our team to contact you.
+        </div>
       </div>
 
-      <div class="rowColumn">
-        <span>Address</span>
-        <strong id="address"></strong>
+      <div class="sectionBlock">
+        <h2 class="sectionTitle">Customer</h2>
+
+        <div class="row">
+          <span>Name</span>
+          <strong id="name"></strong>
+        </div>
+
+        <div class="row">
+          <span>Phone</span>
+          <strong id="phone"></strong>
+        </div>
+
+        <div class="row">
+          <span>Email</span>
+          <strong id="email"></strong>
+        </div>
       </div>
 
-      <div class="row">
-        <span>Total Guests</span>
-        <strong id="guests"></strong>
+      <div class="sectionBlock">
+        <h2 class="sectionTitle">Event</h2>
+
+        <div class="row">
+          <span>Date</span>
+          <strong id="date"></strong>
+        </div>
+
+        <div class="row">
+          <span>Time</span>
+          <strong id="time"></strong>
+        </div>
+
+        <div class="rowColumn">
+          <span>Address</span>
+          <strong id="address"></strong>
+        </div>
+
+        <div class="row">
+          <span>Total Guests</span>
+          <strong id="guests"></strong>
+        </div>
+
+        <div class="row">
+          <span>Adults</span>
+          <strong id="adults"></strong>
+        </div>
+
+        <div class="row">
+          <span>Kids</span>
+          <strong id="kids"></strong>
+        </div>
       </div>
 
-      <div class="row">
-        <span>Adults</span>
-        <strong id="adults"></strong>
+      <div class="sectionBlock">
+        <h2 class="sectionTitle">Booking Details</h2>
+
+        <div class="row">
+          <span>Package</span>
+          <strong id="package"></strong>
+        </div>
+
+        <div class="row">
+          <span>Travel Distance</span>
+          <strong id="travelMiles"></strong>
+        </div>
+
+        <div class="row">
+          <span>Travel Fee</span>
+          <strong id="travelFee"></strong>
+        </div>
+
+        <div class="row">
+          <span>Subtotal Before Discount</span>
+          <strong id="subtotalBeforeDiscount"></strong>
+        </div>
+
+        <div class="row">
+          <span>Birthday Discount</span>
+          <strong id="birthdayDiscount"></strong>
+        </div>
+
+        <div class="row">
+          <span>Promo Discount</span>
+          <strong id="promoDiscount"></strong>
+        </div>
+
+        <div class="row">
+          <span>Discounted Subtotal</span>
+          <strong id="discountedSubtotal"></strong>
+        </div>
+
+        <div class="row">
+          <span>Estimated Tax</span>
+          <strong id="tax"></strong>
+        </div>
+
+        <div class="row">
+          <span>Total Price</span>
+          <strong id="total"></strong>
+        </div>
+
+        <div class="row">
+          <span>Deposit Due Now</span>
+          <strong id="deposit"></strong>
+        </div>
+
+        <div class="row">
+          <span>Remaining After Deposit Payment</span>
+          <strong id="remain"></strong>
+        </div>
+
+        <div class="row">
+          <span>Meal Decision</span>
+          <strong id="mealDecision"></strong>
+        </div>
+
+        <div class="rowColumn">
+          <span>Adult Proteins</span>
+          <strong id="adultProteins"></strong>
+        </div>
+
+        <div class="rowColumn">
+          <span>Kid Proteins</span>
+          <strong id="kidProteins"></strong>
+        </div>
+        <div class="row">
+          <span>Add-Ons</span>
+          <strong id="addOnsDetails">None</strong>
+        </div>
+        <div class="row">
+          <span>Promo Code</span>
+          <strong id="promo"></strong>
+        </div>
       </div>
 
-      <div class="row">
-        <span>Kids</span>
-        <strong id="kids"></strong>
+      <div class="noticeBox">
+        <div class="noticeTitle">What happens next:</div>
+        <div>• Our team reviews your request</div>
+        <div>• We confirm availability and any pricing adjustments</div>
+        <div>• If protein choices were not finalized, staff can update them later</div>
+        <div>• Your booking details may later be reflected in PDF, sheets, and calendar updates</div>
       </div>
+
+      <div class="actions">
+        <a href="index.html" class="primaryButton">Back to Home</a>
+        <a href="book-online.html" class="secondaryButton">Submit Another Booking</a>
+        <a href="tel:+16462046895" class="secondaryButton">Call A1</a>
+      </div>
+
     </div>
+  </main>
 
-    <div class="sectionBlock">
-      <h2 class="sectionTitle">Booking Details</h2>
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-      <div class="row">
-        <span>Package</span>
-        <strong id="package"></strong>
-      </div>
-
-      <div class="row">
-        <span>Travel Distance</span>
-        <strong id="travelMiles"></strong>
-      </div>
-
-      <div class="row">
-        <span>Travel Fee</span>
-        <strong id="travelFee"></strong>
-      </div>
-
-      <div class="row">
-        <span>Subtotal Before Discount</span>
-        <strong id="subtotalBeforeDiscount"></strong>
-      </div>
-
-      <div class="row">
-        <span>Birthday Discount</span>
-        <strong id="birthdayDiscount"></strong>
-      </div>
-
-      <div class="row">
-        <span>Promo Discount</span>
-        <strong id="promoDiscount"></strong>
-      </div>
-
-      <div class="row">
-        <span>Discounted Subtotal</span>
-        <strong id="discountedSubtotal"></strong>
-      </div>
-
-      <div class="row">
-        <span>Estimated Tax</span>
-        <strong id="tax"></strong>
-      </div>
-
-      <div class="row">
-        <span>Total Price</span>
-        <strong id="total"></strong>
-      </div>
-
-      <div class="row">
-        <span>Deposit Due Now</span>
-        <strong id="deposit"></strong>
-      </div>
-
-      <div class="row">
-        <span>Remaining After Deposit Payment</span>
-        <strong id="remain"></strong>
-      </div>
-
-      <div class="row">
-        <span>Meal Decision</span>
-        <strong id="mealDecision"></strong>
-      </div>
-
-      <div class="rowColumn">
-        <span>Adult Proteins</span>
-        <strong id="adultProteins"></strong>
-      </div>
-
-      <div class="rowColumn">
-        <span>Kid Proteins</span>
-        <strong id="kidProteins"></strong>
-      </div>
-
-      <div class="row">
-        <span>Promo Code</span>
-        <strong id="promo"></strong>
-      </div>
-    </div>
-
-    <div class="noticeBox">
-      <div class="noticeTitle">What happens next:</div>
-      <div>• Our team reviews your request</div>
-      <div>• We confirm availability and any pricing adjustments</div>
-      <div>• If protein choices were not finalized, staff can update them later</div>
-      <div>• Your booking details may later be reflected in PDF, sheets, and calendar updates</div>
-    </div>
-
-    <div class="actions">
-      <a href="index.html" class="primaryButton">Back to Home</a>
-      <a href="book-online.html" class="secondaryButton">Submit Another Booking</a>
-      <a href="tel:+16462046895" class="secondaryButton">Call A1</a>
-    </div>
-
-  </div>
-</main>
-
-<script>
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-
-if (menuToggle && mobileMenu) {
-  menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("menu-open");
-    const expanded = mobileMenu.classList.contains("menu-open");
-    menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-  });
-}
-</script>
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("menu-open");
+        const expanded = mobileMenu.classList.contains("menu-open");
+        menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      });
+    }
+  </script>
 
 </body>
+
 </html>
