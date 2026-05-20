@@ -79,6 +79,138 @@ body {
     min-height: 720px;
   }
 }
+
+/* =====================================================================
+   ===== QUICK LEAD FORM (Stage 18) =====
+   Native fallback lead-capture sitting ABOVE the booking iframe so we
+   capture conversions even when the iframe fails to load (mobile UX,
+   ad blockers, slow networks, or user prefers a simpler path).
+   ===================================================================== */
+.quick-lead {
+  background: linear-gradient(180deg, #fff5f0 0%, #ffffff 100%);
+  padding: 36px 16px 40px;
+  border-bottom: 1px solid #f3d6c8;
+}
+.quick-lead-inner { max-width: 640px; margin: 0 auto; }
+.quick-lead-badge {
+  display: inline-block;
+  background: #dc2626;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.quick-lead-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: #111;
+  line-height: 1.2;
+}
+.quick-lead-sub {
+  color: #4b5563;
+  line-height: 1.55;
+  margin: 0 0 20px;
+  font-size: 15px;
+}
+.quick-lead-form {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.quick-lead-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.quick-lead-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+.quick-lead-row input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  background: #fff;
+}
+.quick-lead-row input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220,38,38,.12);
+}
+.quick-lead-submit {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.quick-lead-submit:hover { background: #b91c1c; transform: translateY(-1px); }
+.quick-lead-submit:disabled { background: #9ca3af; cursor: not-allowed; transform: none; }
+.quick-lead-message {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.quick-lead-message.ok { background: #ecfdf5; color: #065f46; }
+.quick-lead-message.err { background: #fef2f2; color: #991b1b; }
+.booking-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 36px auto;
+  max-width: 640px;
+  padding: 0 16px;
+  color: #9ca3af;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+.booking-divider::before,
+.booking-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+.booking-divider span { padding: 0 16px; text-transform: uppercase; }
+.booking-detail-intro {
+  max-width: 640px;
+  margin: 0 auto 16px;
+  padding: 0 16px;
+  text-align: center;
+}
+.booking-detail-intro h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: #111;
+}
+.booking-detail-intro p { color: #6b7280; line-height: 1.55; margin: 0; font-size: 14px; }
+
+@media (max-width: 540px) {
+  .quick-lead-row { grid-template-columns: 1fr; }
+  .quick-lead-title { font-size: 1.4rem; }
+}
 </style>
 </head>
 
@@ -110,6 +242,66 @@ body {
   <a href="https://booking.hibachifinder.com/a1hibachiparty" target="_blank" rel="noopener noreferrer" class="nav-btn">Open Full Page</a>
 </nav>
 
+<!-- Primary path: native quick form on top — lowest friction, captures lead in <1 min -->
+<section id="quick-lead" class="quick-lead">
+  <div class="quick-lead-inner">
+    <div class="quick-lead-badge">⚡ Fastest way to book</div>
+    <h2 class="quick-lead-title">Get a quote in 1 minute</h2>
+    <p class="quick-lead-sub">
+      Fill in the basics and we'll text or call you back within 1 hour with
+      pricing, availability, and next steps. No account needed.
+    </p>
+
+    <form id="leadForm" class="quick-lead-form" novalidate>
+      <div class="quick-lead-row">
+        <label>
+          <span>Your name *</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          <span>Phone *</span>
+          <input type="tel" name="phone" required autocomplete="tel" />
+        </label>
+      </div>
+      <div class="quick-lead-row">
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" />
+        </label>
+        <label>
+          <span>City / town</span>
+          <input type="text" name="city" placeholder="e.g. Brooklyn, NY" />
+        </label>
+      </div>
+      <div class="quick-lead-row">
+        <label>
+          <span>Event date</span>
+          <input type="date" name="date" />
+        </label>
+        <label>
+          <span>Guest count</span>
+          <input type="number" name="guests" min="1" max="200" />
+        </label>
+      </div>
+      <button type="submit" class="quick-lead-submit" id="leadSubmit">
+        Send Quick Message →
+      </button>
+      <p id="leadMessage" class="quick-lead-message" hidden></p>
+    </form>
+  </div>
+</section>
+
+<div class="booking-divider"><span>or</span></div>
+
+<div class="booking-detail-intro">
+  <h3>Prefer to see the full pricing breakdown?</h3>
+  <p>
+    Use the detailed booking form below to pick your package, see live pricing
+    based on guest count + travel distance, and optionally pay a deposit
+    to lock in your date.
+  </p>
+</div>
+
 <div class="booking-fallback">
   If the booking form does not load, open it directly here:
   <a href="https://booking.hibachifinder.com/a1hibachiparty" target="_blank" rel="noopener noreferrer">A1 Hibachi Party Booking</a>
@@ -127,16 +319,78 @@ body {
 </main>
 
 <script>
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-
-if (menuToggle && mobileMenu) {
+// ===== Mobile menu toggle =====
+(function () {
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (!menuToggle || !mobileMenu) return;
   menuToggle.addEventListener("click", () => {
     mobileMenu.classList.toggle("menu-open");
     const expanded = mobileMenu.classList.contains("menu-open");
     menuToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
   });
-}
+})();
+
+// ===== Quick lead form =====
+// Estimated revenue per qualified lead — used for Google Ads conversion value.
+// Adjust upward as A1 closes more leads and we know the real $/lead.
+const ESTIMATED_LEAD_VALUE_USD = 100;
+
+(function setupLeadForm() {
+  const form = document.getElementById("leadForm");
+  const submit = document.getElementById("leadSubmit");
+  const msg = document.getElementById("leadMessage");
+  if (!form || !submit || !msg) return;
+
+  function showMessage(kind, text) {
+    msg.hidden = false;
+    msg.className = "quick-lead-message " + (kind === "ok" ? "ok" : "err");
+    msg.textContent = text;
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (!data.name || !data.phone) {
+      showMessage("err", "Please provide at least your name and phone.");
+      return;
+    }
+    submit.disabled = true;
+    submit.textContent = "Sending…";
+    msg.hidden = true;
+
+    try {
+      const res = await fetch("/api/send-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, source: "a1hibachiparty booking page native form" }),
+      });
+      if (!res.ok) {
+        const detail = await res.text().catch(() => "");
+        throw new Error(detail || "Server error " + res.status);
+      }
+      showMessage("ok", "Thanks! We got your message and will reach out within 1 hour.");
+      // Fire the Google Ads conversion BEFORE redirect so it counts even if the
+      // user closes the tab. AW-ID matches the gtag config at the top of this page.
+      const leadId = "lead_" + Date.now();
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18076137033',
+          value: ESTIMATED_LEAD_VALUE_USD,
+          currency: 'USD',
+          transaction_id: leadId,
+        });
+      }
+      form.reset();
+      setTimeout(() => { submit.disabled = false; submit.textContent = "Send Quick Message →"; }, 4000);
+    } catch (err) {
+      console.error("Lead submit failed:", err);
+      showMessage("err", "Sorry, we couldn't send that. Please call us directly or use the booking form below.");
+      submit.disabled = false;
+      submit.textContent = "Send Quick Message →";
+    }
+  });
+})();
 </script>
 
 </body>

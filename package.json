@@ -1,0 +1,13 @@
+{
+  "name": "a1hibachiparty-site",
+  "private": true,
+  "version": "0.2.0",
+  "description": "A1 Hibachi Party — static site + serverless lead form endpoint",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}
